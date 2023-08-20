@@ -1,3 +1,4 @@
+-- This file configures some plugins related to CMP
 return {
     -- Neovim 本身不支持代码补全，需要通过插件实现
     -- cmp 补全引擎
@@ -90,8 +91,10 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-k>'] = cmp.mapping.select_prev_item(),
                 ['<C-j>'] = cmp.mapping.select_next_item(),
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                -- scroll_docs only support cmp's documentation window.
+                -- If the window content is too long, you can scroll.
+                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-d>'] = cmp.mapping.scroll_docs(4),
                 --['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(), -- 取消补全，esc也可退出
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
