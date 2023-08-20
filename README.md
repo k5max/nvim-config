@@ -36,6 +36,7 @@ nvim
         ├── symbols-outline.lua
         ├── telescope.lua
         ├── toggleterm.lua
+        ├── vim-bookmarks.lua
         └── which-key.lua
 ```
 
@@ -174,19 +175,30 @@ plugins -- 插件文件配置所在目录
 
 #### telescope
 
-| command                   | keybinding  | plugin         | model  |
-| ------------------------- | ----------- | -------------- | ------ |
-| find files                | \<leader>ff | telescope.nvim | normal |
-| live grep                 | \<leader>fg | telescope.nvim | normal |
-| buffer                    | \<leader>fb | telescope.nvim | normal |
-| help tags                 | \<leader>fh | telescope.nvim | normal |
-| telescope弹窗内左移光标   | \<C-h>      | telescope.nvim | insert |
-| telescope弹窗内下移光标   | \<C-j>      | telescope.nvim | insert |
-| telescope弹窗内上移光标   | \<C-k>      | telescope.nvim | insert |
-| telescope弹窗内右移光标   | \<C-l>      | telescope.nvim | insert |
-| telescope弹窗内容向上滚动 | \<C-u>      | telescope.nvim | insert |
-| telescope弹窗内容向下滚动 | \<C-d>      | telescope.nvim | insert |
-| telescope关闭弹窗         | \<esc>      | telescope.nvim | insert |
+| command                               | keybinding  | plugin         | model  |
+| ------------------------------------- | ----------- | -------------- | ------ |
+| find files                            | \<leader>ff | telescope.nvim | normal |
+| live grep                             | \<leader>fg | telescope.nvim | normal |
+| buffers                               | \<leader>fb | telescope.nvim | normal |
+| commands                              | \<leader>fc | telescope.nvim | normal |
+| help_tags                             | \<leader>fh | telescope.nvim | normal |
+| keymaps                               | \<leader>fk | telescope.nvim | normal |
+| man_pages                             | \<leader>sm | telescope.nvim | normal |
+| lsp_document_symbols                  | \<leader>fs | telescope.nvim | normal |
+| lsp_dynamic_workspace_symbols         | \<leader>fS | telescope.nvim | normal |
+| extentions.vim_bookmarks.current_file | \<leader>fm | telescope.nvim | normal |
+| extentions.vim_bookmarks.all          | \<leader>fM | telescope.nvim | normal |
+| :Telescope projects                   | \<leader>fp | telescope.nvim | normal |
+| oldfiles                              | \<leader>fr | telescope.nvim | normal |
+| registers                             | \<leader>fR | telescope.nvim | normal |
+| resume                                | \<leader>fl | telescope.nvim | normal |
+| telescope弹窗内左移光标               | \<C-h>      | telescope.nvim | insert |
+| telescope弹窗内下移光标               | \<C-j>      | telescope.nvim | insert |
+| telescope弹窗内上移光标               | \<C-k>      | telescope.nvim | insert |
+| telescope弹窗内右移光标               | \<C-l>      | telescope.nvim | insert |
+| telescope弹窗内容向上滚动             | \<C-u>      | telescope.nvim | insert |
+| telescope弹窗内容向下滚动             | \<C-d>      | telescope.nvim | insert |
+| telescope关闭弹窗                     | \<esc>      | telescope.nvim | insert |
 
 
 
@@ -234,8 +246,8 @@ plugins -- 插件文件配置所在目录
 | ------------------------------------ | ---------- | ------------ | ---------- |
 | 选中下一个补全提示信息               | \<C-j>     | nvim-cmp     | insert     |
 | 选中上一个补全提示信息               | \<C-k>     | nvim-cmp     | insert     |
-| 向后翻4个补全提示信息                | \<C-b>     | nvim-cmp     | insert     |
-| 向前翻4个补全提示信息                | \<C-f>     | nvim-cmp     | insert     |
+| 向前翻4个补全提示信息                | \<C-u>     | nvim-cmp     | insert     |
+| 向后翻4个补全提示信息                | \<C-d>     | nvim-cmp     | insert     |
 | 退出补全（esc也可退出）              | \<C-e>     | nvim-cmp     | insert     |
 | ~~选中下一个补全提示信息（未使用）~~ | ~~\<Tab>~~ | ~~nvim-cmp~~ | ~~insert~~ |
 | 选中上一个补全提示信息               | \<S-Tab>   | nvim-cmp     | insert     |
@@ -290,16 +302,6 @@ which功能就是**整合命令 + 提示**。
 | gb      | checkout branch                   | Git      | normal |
 | gc      | checkout commit                   | Git      | normal |
 | gC      | checkout commit(for current file) | Git      | normal |
-|         |                                   |          |        |
-| sf      | 搜索文件                          | Search   | normal |
-| sH      | 查找帮助                          | Search   | normal |
-| sM      | man page                          | Search   | normal |
-| sr      | 打开最近文件列表                  | Search   | normal |
-| sR      | Register                          | Search   | normal |
-| st      | Text                              | Search   | normal |
-| sk      | Keymaps                           | Search   | normal |
-| sC      | Commands                          | Search   | normal |
-| sl      | Resume last search                | Search   | normal |
 |         |                                   |          |        |
 | tf      | 以浮动弹窗方式打开终端            | Terminal | normal |
 | th      | 以水平方式打开终端                | Terminal | normal |

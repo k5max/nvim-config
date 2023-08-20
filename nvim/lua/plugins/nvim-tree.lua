@@ -2,7 +2,7 @@ return {
     -- vim-tree + nvim-web-devicons => 文件树 + 图标
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
+    config = function ()
         local nvim_tree = require("nvim-tree")
         nvim_tree.setup({
             -- 排序规则

@@ -131,21 +131,6 @@ return {
             --     },
             -- },
 
-            s = {
-                name = "Search",
-                f = { "<cmd>Telescope find_files<cr>", "Find File" },
-                H = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-                -- H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
-                M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-                r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-                R = { "<cmd>Telescope registers<cr>", "Registers" },
-                t = { "<cmd>Telescope live_grep<cr>", "Text" },
-                k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-                C = { "<cmd>Telescope commands<cr>", "Commands" },
-                l = { "<cmd>Telescope resume<cr>", "Resume last search" },
-            },
-
-
             t = {
                 name = "Terminal",
                 f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },

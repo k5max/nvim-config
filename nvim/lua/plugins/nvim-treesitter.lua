@@ -1,7 +1,6 @@
 return {
-    -- treesitter + nvim-ts-rainbow => 语法高亮 + 不同括号颜色区分
+    -- treesitter => 语法高亮
     "nvim-treesitter/nvim-treesitter",
-    -- dependencies = { "p00f/nvim-ts-rainbow" },
     build = ":TSUpdate",
     config = function()
         local treesitter = require("nvim-treesitter.configs")
@@ -39,22 +38,21 @@ return {
             indent = {
                 enable = true,
             },
-            -- p00f/nvim-ts-rainbow
-            rainbow = {
-                enable = true,
-                -- disable = { "cpp" }, list of languages you want to disable the plugin for
-                extended_mode = true, -- also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-                max_file_lines = nil, -- do not enable for files with more than n lines, int
-                colors = {
-                    "#95ca60",
-                    "#ee6985",
-                    "#d6a760",
-                    "#7794f4",
-                    "#b38bf5",
-                    "#7cc7fe",
-                }, -- table of hex strings
-                -- termcolors = { } -- table of colour name strings
-            },
+            -- rainbow = {
+            --     enable = true,
+            --     -- disable = { "cpp" }, list of languages you want to disable the plugin for
+            --     extended_mode = true, -- also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+            --     max_file_lines = nil, -- do not enable for files with more than n lines, int
+            --     colors = {
+            --         "#95ca60",
+            --         "#ee6985",
+            --         "#d6a760",
+            --         "#7794f4",
+            --         "#b38bf5",
+            --         "#7cc7fe",
+            --     }, -- table of hex strings
+            --     -- termcolors = { } -- table of colour name strings
+            -- },
         })
 
         -- 快捷键绑定
