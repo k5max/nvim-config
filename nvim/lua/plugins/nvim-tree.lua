@@ -47,9 +47,11 @@ return {
             disable_netrw = false,
             -- 排序规则
             sort_by = "case_sensitive",
-            -- 不显示 git 状态图标
+            -- 显示 git 状态图标
             git = {
-                enable = false,
+                enable = true,
+                ignore = true,
+                timeout = 500,
             },
             renderer = {
                 group_empty = true,
@@ -74,6 +76,10 @@ return {
                 -- 显示图标
                 signcolumn = 'yes',
             },
+            hijack_directories = {
+                enable = true,
+                auto_open = true,
+            },
             update_focused_file = {
                 enable = true,
                 update_cwd = false,
@@ -91,6 +97,22 @@ return {
                     resize_window = true,
                     -- 打开文件时关闭
                     quit_on_open = false,
+                },
+            },
+            -- trash = {
+            --     cmd = "trash",
+            --     require_confirm = true,
+            -- },
+            log = {
+                enable = false,
+                truncate = false,
+                types = {
+                    all = false,
+                    config = false,
+                    copy_paste = false,
+                    diagnostics = false,
+                    git = false,
+                    profile = false,
                 },
             },
         })
