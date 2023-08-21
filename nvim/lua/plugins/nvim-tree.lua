@@ -44,7 +44,11 @@ return {
         local nvim_tree = require("nvim-tree")
         nvim_tree.setup({
             auto_reload_on_write = true,
-            disable_netrw = false,
+            disable_netrw = true,
+            hijack_netrw = true,
+            open_on_tab = false,
+            hijack_cursor = false,
+            update_cwd = true,
             -- 排序规则
             sort_by = "case_sensitive",
             -- 显示 git 状态图标
@@ -84,6 +88,11 @@ return {
                 enable = true,
                 update_cwd = false,
                 ignore_list = {},
+            },
+            filesystem_watchers = {
+                enable = true,
+                debounce_delay = 50,
+                ignore_dirs = {},
             },
             actions = {
                 use_system_clipboard = true,
