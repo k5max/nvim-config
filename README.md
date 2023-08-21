@@ -28,6 +28,7 @@ nvim
         ├── leap.lua
         ├── lsp.lua
         ├── lualine.lua
+        ├── neovim-session-manager.lua
         ├── nvim-autopairs.lua
         ├── nvim-surround.lua
         ├── nvim-tree.lua
