@@ -121,7 +121,6 @@ return {
             --         "Workspace Symbols",
             --     },
             -- },
-
             -- c = {
             --     name = "Colorscheme",
             --     s = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -130,7 +129,6 @@ return {
             --         "Colorscheme with Preview",
             --     },
             -- },
-
             t = {
                 name = "Terminal",
                 f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
