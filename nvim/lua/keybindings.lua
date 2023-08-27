@@ -38,6 +38,9 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", opt)
 
 
 -- ===== visual model =====
+-- 连续缩进代码
+keymap.set("v", "<", "<gv", opt)
+keymap.set("v", ">", ">gv", opt)
 -- 上下移动选中文本
 keymap.set("v", "J", ":move '>+1<CR>gv-gv", opt)
 keymap.set("v", "K", ":move '<-2<CR>gv-gv", opt)
