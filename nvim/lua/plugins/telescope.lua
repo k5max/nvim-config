@@ -88,6 +88,9 @@ return {
     },
     {
         -- telescope 和 vim-bookmarks 集成桥梁
+        -- The extension provides two new pickers: 
+        --     :Telescope vim_bookmarks all   => 已经被上面映射成 <leader>fM
+        --     :Telescope vim_bookmarks current_file => 已经被上面映射成 <leader>fm
         "tom-anders/telescope-vim-bookmarks.nvim",
     },
     {
