@@ -174,6 +174,20 @@ plugins -- 插件文件配置所在目录
 
 
 
+#### vim-bookmarks
+
+| command                           | keybinding | plugin        | model  |
+| --------------------------------- | ---------- | ------------- | ------ |
+| 在当前行添加/删除书签             | mm         | vim-bookmarks | normal |
+| 在当前行添加/编辑/删除 annotation | mi         | vim-bookmarks | normal |
+| 跳转到缓冲区中的下一个书签        | mn         | vim-bookmarks | normal |
+| 跳转到缓冲区中的上一个书签        | mp         | vim-bookmarks | normal |
+| 显示所有书签（单独窗口）          | ma         | vim-bookmarks | normal |
+| 仅清除当前缓冲区中的书签          | mc         | vim-bookmarks | normal |
+| 清除所有缓冲区中的书签            | mx         | vim-bookmarks | normal |
+
+
+
 #### telescope
 
 | command                               | keybinding  | plugin         | model  |
