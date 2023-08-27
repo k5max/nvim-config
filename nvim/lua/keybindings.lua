@@ -42,8 +42,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", opt)
 keymap.set("v", "<", "<gv", opt)
 keymap.set("v", ">", ">gv", opt)
 -- 上下移动选中文本
-keymap.set("v", "J", ":move '>+1<CR>gv-gv", opt)
-keymap.set("v", "K", ":move '<-2<CR>gv-gv", opt)
+keymap.set("v", "J", ":move '>+1<CR>gv=gv", opt) -- :move '>+1<CR>gv-gv 不缩进
+keymap.set("v", "K", ":move '<-2<CR>gv=gv", opt)
 
 -- ===== terminal model =====
 -- Better terminal navigation
