@@ -30,7 +30,7 @@ vim.o.smartindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 -- 搜索高亮
-vim.o.hlsearch = true 
+vim.o.hlsearch = true
 -- 边输入边搜索
 vim.o.incsearch = true
 -- 命令行高为2，提供足够的显示空间
