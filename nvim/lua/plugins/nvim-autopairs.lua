@@ -1,6 +1,7 @@
 return {
     -- nvim-autopairs => 自动补全括号之类
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function()
         local autopairs = require("nvim-autopairs")
         autopairs.setup({
