@@ -1,3 +1,4 @@
+-- This file configures some plugins related to LSP
 return {
     {
         -- installer
@@ -124,7 +125,7 @@ return {
             -- ui 设置
             vim.diagnostic.config({
                 virtual_text = true, -- 出错时在行尾显示错误信息
-                signs = true,
+                signs = false, -- TODO 通过开关设置sign信息，默认关闭
                 -- 在输入模式下也更新提示，设置为 true 也许会影响性能
                 update_in_insert = false,
             })
