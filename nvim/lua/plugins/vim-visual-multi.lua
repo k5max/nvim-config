@@ -1,6 +1,4 @@
 return {
+    -- https://github.com/mg979/vim-visual-multi
     "mg979/vim-visual-multi",
-    config = function ()
-        -- let g:VM_default_mappings = 0
-    end
 }
