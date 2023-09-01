@@ -25,6 +25,11 @@ keymap.set("n", "<leader>l", "<C-w>5>", opt) -- 增加宽度
 keymap.set("n", "<leader>j", "<C-w>5-", opt) -- 减小高度
 keymap.set("n", "<leader>k", "<C-w>5+", opt) -- 增加高度
 
+-- Place the two screens up and down
+keymap.set("n", "sh", "<C-w>t<C-w>K", opt)
+-- Place the two screens side by side
+keymap.set("n", "sv", "<C-w>t<C-w>H", opt)
+
 -- 取消搜索高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>", opt)
 
