@@ -121,19 +121,20 @@ return {
                 ['<C-e>'] = cmp.mapping.abort(), -- 取消补全，esc也可退出
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
-                ["<Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-                        -- they way you will only jump inside the snippet region
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    elseif has_words_before() then
-                        cmp.complete()
-                    else
-                        fallback()
-                    end
-                end, { "i", "s" }),
+                -- 与copilot tab 补全冲突，禁用
+                -- ["<Tab>"] = cmp.mapping(function(fallback)
+                --     if cmp.visible() then
+                --         cmp.select_next_item()
+                --         -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
+                --         -- they way you will only jump inside the snippet region
+                --     elseif luasnip.expand_or_jumpable() then
+                --         luasnip.expand_or_jump()
+                --     elseif has_words_before() then
+                --         cmp.complete()
+                --     else
+                --         fallback()
+                --     end
+                -- end, { "i", "s" }),
 
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then

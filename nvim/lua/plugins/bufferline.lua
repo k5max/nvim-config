@@ -42,8 +42,8 @@ return {
         -- 关闭 使用"moll/vim-bbye"
         vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete!<cr>", opt)
         vim.keymap.set("n", "<leader>bg", "<cmd>BufferLinePick<cr>", opt)
-        vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineCyclePrev<cr>", opt)
-        vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineCycleNext<cr>", opt)
+        vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineCyclePrev<cr>", opt)
+        vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineCycleNext<cr>", opt)
         vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineCloseRight<cr>", opt)
         vim.keymap.set("n", "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", opt)
         vim.keymap.set("n", "<leader>bC", "<cmd>BufferLinePickClose<cr>", opt)
