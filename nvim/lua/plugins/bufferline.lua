@@ -41,6 +41,7 @@ return {
         vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers previewer=false<cr>", opt)
         -- 关闭 使用"moll/vim-bbye"
         vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete!<cr>", opt)
+        vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", opt)
         vim.keymap.set("n", "<leader>bg", "<cmd>BufferLinePick<cr>", opt)
         vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineCyclePrev<cr>", opt)
         vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineCycleNext<cr>", opt)

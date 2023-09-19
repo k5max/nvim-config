@@ -146,6 +146,7 @@ plugins -- 插件文件配置所在目录
 | 上一个buffer          | \<leader>bk | bufferline.nvim | normal |
 | 关闭buffer            | \<leader>bc | bufferline.nvim | normal |
 | 选择一个buffer关闭    | \<leader>bC | bufferline.nvim | normal |
+| 关闭其他buffer        | \<leader>bo | bufferline.nvim | normal |
 | 关闭所有左侧的buffer  | \<leader>bh | bufferline.nvim | normal |
 | 关闭所有右侧的buffer  | \<leader>bl | bufferline.nvim | normal |
 
