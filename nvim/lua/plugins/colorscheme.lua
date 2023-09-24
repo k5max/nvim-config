@@ -2,7 +2,7 @@
 return {
     {
         "navarasu/onedark.nvim",
-        enabled = false,
+        enabled = true,
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
@@ -15,14 +15,14 @@ return {
             -- end
             -- vim.cmd("colorscheme onedark")
             require('onedark').setup {
-                style = 'dark'
+                style = 'dark' -- Themes: dark darker cool deep warm warmer
             }
             require('onedark').load() -- 跟vim.cmd("colorscheme onedark")效果一样，是两种不同的应用主题的方式
         end,
     },
     {
         "sainnhe/sonokai",
-        enabled = true,
+        enabled = false,
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
