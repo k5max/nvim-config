@@ -59,6 +59,8 @@ return {
             },
             renderer = {
                 group_empty = true,
+                -- 隐藏根目录
+                root_folder_label = false,
             },
             -- 隐藏 .文件 
             filters = {
@@ -72,8 +74,6 @@ return {
                 width = 30,
                 -- 也可以 'right'
                 side = 'left',
-                -- 隐藏根目录
-                hide_root_folder = false,
                 -- 不显示行数
                 number = false,
                 relativenumber = false,
