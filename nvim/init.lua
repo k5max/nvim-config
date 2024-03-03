@@ -4,6 +4,8 @@ require("basic")
 require("keybindings")
 -- 自动命令
 require("autocmd")
+-- 剪贴板设置
+require("clipboard")
 -- lazynvim 插件管理
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
