@@ -31,6 +31,7 @@ return {
                     -- "ccls", mason暂不支持
                     "clangd",
                     -- "cmake",
+                    "jdtls",
                     "lua_ls",
                     -- "html",
                     -- "cssls",
@@ -55,6 +56,7 @@ return {
                 --ccls = require("lsp.ccls")
                 clangd = require("lsp.clangd"), --lua/lsp/clangd.lua
                 --cmake = require("lsp.cmake"),
+                jdtls = require("lsp.jdtls"),
                 lua_ls = require("lsp.lua"),
                 -- html = require("lsp.html"),
                 -- cssls = require("lsp.css"),

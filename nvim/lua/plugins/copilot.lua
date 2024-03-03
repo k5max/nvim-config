@@ -2,7 +2,8 @@ return {
     {
 		"github/copilot.vim",
 		config = function()
-			vim.g.copilot_enabled = true
+            -- 默认是否开启
+			vim.g.copilot_enabled = false
 			vim.g.copilot_no_tab_map = true
 			-- vim.api.nvim_set_keymap('n', '<leader>go', ':Copilot<CR>', { silent = true })
 			vim.api.nvim_set_keymap('n', '<leader>ce', ':Copilot enable<CR>', { silent = true })
