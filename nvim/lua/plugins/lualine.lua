@@ -43,9 +43,8 @@ return {
                             -- default is true.
                             show_running = true,
                             symbols = {
-                                -- copilot nerd-font icon not work, so use   instead.
-                                enabled = " ",
-                                disabled = " ",
+                                enabled = " ",
+                                disabled = " ",
                                 running = " ",
                             }
                         },
