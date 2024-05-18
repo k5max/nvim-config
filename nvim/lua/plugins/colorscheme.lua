@@ -21,21 +21,61 @@ return {
         end,
     },
     {
+        "morhetz/gruvbox",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        config = function ()
+            -- vim.g.gruvbox_contrast_dark = "medium"
+            -- vim.g.gruvbox_termcolors = 256,
+            -- vim.g.gruvbox_undercurl = 1,
+            -- vim.g.gruvbox_underline = 1,
+            -- vim.g.gruvbox_bold = 1,
+            -- vim.g.gruvbox_italic = 1
+            vim.cmd("colorscheme gruvbox")
+        end
+    },
+    {
+        -- lua gruvbox
+        "ellisonleao/gruvbox.nvim",
+        enabled = true,
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("gruvbox").setup({
+                terminal_colors = true, -- add neovim terminal colors
+                undercurl = true,
+                underline = true,
+                bold = true,
+                italic = {
+                    strings = false,
+                    emphasis = true,
+                    comments = true,
+                    operators = false,
+                    folds = true,
+                },
+                strikethrough = true,
+                invert_selection = false,
+                invert_signs = false,
+                invert_tabline = false,
+                invert_intend_guides = false,
+                inverse = true, -- invert background for search, diffs, statuslines and errors
+                contrast = "", -- can be "hard", "soft" or empty string (mean medium)
+                palette_overrides = {},
+                overrides = {},
+                dim_inactive = false,
+                transparent_mode = false,
+            })
+            vim.cmd("colorscheme gruvbox")
+        end,
+    },
+    {
         "sainnhe/sonokai",
         enabled = false,
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             vim.cmd("colorscheme sonokai")
-        end,
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        enabled = true,
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            vim.cmd("colorscheme gruvbox")
         end,
     },
     {

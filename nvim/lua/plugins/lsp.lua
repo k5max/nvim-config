@@ -126,13 +126,13 @@ return {
 
             -- ui 设置
             vim.diagnostic.config({
-                virtual_text = true, -- 出错时在行尾显示错误信息
+                virtual_text = false, -- 出错时在行尾显示错误信息
                 signs = false, -- TODO 通过开关设置sign信息，默认关闭
                 underline = true,
                 -- 在输入模式下也更新提示，设置为 true 也许会影响性能
                 update_in_insert = false,
             })
-            local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+            local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
