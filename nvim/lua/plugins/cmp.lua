@@ -37,7 +37,7 @@ return {
             Function = "󰊕",
             Constructor = "",
             Field = "",
-            Variable = "",
+            Variable = "󰫧",
             Class = "𝓒",
             Interface = "",
             Module = "",
@@ -113,6 +113,8 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-k>'] = cmp.mapping.select_prev_item(),
                 ['<C-j>'] = cmp.mapping.select_next_item(),
+                ['<C-p>'] = cmp.mapping.select_prev_item(),
+                ['<C-n>'] = cmp.mapping.select_next_item(),
                 -- scroll_docs only support cmp's documentation window.
                 -- If the window content is too long, you can scroll.
                 ['<C-u>'] = cmp.mapping.scroll_docs(-4),
