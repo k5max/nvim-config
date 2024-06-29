@@ -31,11 +31,11 @@ return {
                     -- "ccls", mason暂不支持
                     "clangd",
                     -- "cmake",
-                    "jdtls",
-                    "lua_ls",
+                    -- "jdtls",
+                    -- "lua_ls",
                     -- "html",
                     -- "cssls",
-                    "tsserver",
+                    -- "tsserver",
                     "pyright",
                 },
                 -- 是否应该自动安装
@@ -51,16 +51,16 @@ return {
             -- language server 安装列表
             -- { key: 服务器名， value: 配置文件 }
             -- key 必须为下列网址列出的 server name，不可以随便写
-            -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
             local servers = {
-                --ccls = require("lsp.ccls")
-                clangd = require("lsp.clangd"), --lua/lsp/clangd.lua
-                --cmake = require("lsp.cmake"),
-                jdtls = require("lsp.jdtls"),
-                lua_ls = require("lsp.lua"),
+                -- ccls = require("lsp.ccls"),
+                clangd = require("lsp.clangd"),
+                -- cmake = require("lsp.cmake"),
+                -- jdtls = require("lsp.jdtls"),
+                -- lua_ls = require("lsp.lua"),
                 -- html = require("lsp.html"),
                 -- cssls = require("lsp.css"),
-                tsserver = require("lsp.tsserver"),
+                -- tsserver = require("lsp.tsserver"),
                 pyright = require("lsp.pyright"),
             }
 
@@ -76,14 +76,6 @@ return {
                     lspconfig[name].setup({})
                 end
             end
-
-            -- 快捷键相关
-            -- Global mappings.
-            -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-            vim.keymap.set('n', '<space>df', vim.diagnostic.open_float)
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-            vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
             -- Use LspAttach autocommand to only map the following keys
             -- after the language server attaches to the current buffer
@@ -110,33 +102,54 @@ return {
                     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
                     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
                     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-                    vim.keymap.set('n', '<leader>f', function()
-                        vim.lsp.buf.format { async = true }
-                    end, opts)
+                    vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
                 end,
             })
 
-
-            -- lsp 结合 cmp 自动补全
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-            require("lspconfig").lua_ls.setup {
-                capabilities = capabilities,
-            }
-
-            -- ui 设置
+            -- diagnostics setting
+            vim.diagnostic.disable()
             vim.diagnostic.config({
-                virtual_text = false, -- 出错时在行尾显示错误信息
-                signs = false, -- TODO 通过开关设置sign信息，默认关闭
+                virtual_text = true, -- 出错时在行尾显示错误信息
+                signs = true, -- sign 图标信息
                 underline = true,
                 -- 在输入模式下也更新提示，设置为 true 也许会影响性能
                 update_in_insert = false,
             })
-            local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+
+            local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "" }
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
             end
+
+            -- customize toggle diagnostics status
+            local function show_toggle_message(message, duration)
+                vim.api.nvim_echo({{message}}, false, {})
+                vim.defer_fn(function()
+                    vim.cmd('echohl None | echomsg ""')
+                end, duration)
+            end
+            local function toggle_diagnostics()
+                if vim.diagnostic.is_disabled() then
+                    vim.diagnostic.enable()
+                    -- vim.api.nvim_echo({ { "Enable diagnostics" } }, false, {})
+                    show_toggle_message("Enable diagnostics", 1000)
+                else
+                    vim.diagnostic.disable()
+                    -- vim.api.nvim_echo({ { "Disable diagnostics" } }, false, {})
+                    show_toggle_message("Disable diagnostics", 1000)
+                end
+            end
+
+            -- diagnostics keymapping 
+            -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+            vim.keymap.set('n', '<leader>qt', toggle_diagnostics, { noremap = true, silent = true })
+            vim.keymap.set('n', '<leader>qd', vim.diagnostic.disable)
+            vim.keymap.set('n', '<leader>qe', vim.diagnostic.enable)
+            vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
         end
     }
 }
