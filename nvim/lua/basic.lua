@@ -54,8 +54,9 @@ vim.o.writebackup = false
 vim.o.swapfile = false
 -- smaller updatetime
 vim.o.updatetime = 300
--- 设置 timeoutlen 为等待键盘快捷键连击时间500毫秒，可根据需要设置
+-- 设置 timeoutlen 和 ttimeoutlen
 vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 25
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
