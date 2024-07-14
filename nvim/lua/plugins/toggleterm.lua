@@ -56,8 +56,11 @@ return {
             htop:toggle()
         end
 
-        vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Lazygit Toggle" })
-        vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Ncdu Toggle" })
-        vim.keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Htop Toggle" })
+        vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", { noremap = true, silent = true, desc = "Lazygit Toggle" })
+        vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", { noremap = true, silent = true, desc = "Ncdu Toggle" })
+        vim.keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<cr>", { noremap = true, silent = true, desc = "Htop Toggle" })
+        vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { noremap = true, silent = true, desc = "Terminal Float" })
+        vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=10<cr>", { noremap = true, silent = true, desc = "Terminal Horizontal" })
+        vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=80<cr>", { noremap = true, silent = true, desc = "Terminal Vertical" })
     end
 }
