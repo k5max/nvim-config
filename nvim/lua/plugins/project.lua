@@ -1,5 +1,4 @@
 return {
-    -- project => project manager
     "ahmedkhalf/project.nvim",
     config = function()
         local project = require("project_nvim")

@@ -1,6 +1,4 @@
 return {
-    -- https://github.com/MattesGroeger/vim-bookmarks
-
     -- default shortcuts => see more: https://github.com/MattesGroeger/vim-bookmarks#Usage    
     -- | Action | Shortcut | Command |
     -- | --- | --- | --- |

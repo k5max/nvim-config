@@ -1,5 +1,4 @@
 return {
-    -- toggleterm => toggle terminal
     "akinsho/toggleterm.nvim",
     config = function()
         local toggleterm = require("toggleterm")
@@ -27,38 +26,38 @@ return {
         })
 
         function _G.set_terminal_keymaps()
-            -- Terminal window navigation
-            local opts = {noremap = true}
-            vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-            vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-            vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-            vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-            vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+            local opts = {buffer = 0}
+            vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+            vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+            vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+            vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+            vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+            vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
         end
 
         vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
         local Terminal = require("toggleterm.terminal").Terminal
+        -- need to install lazygit first
         local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-        -- NOTE: need to install lazygit first
         function _LAZYGIT_TOGGLE()
             lazygit:toggle()
         end
 
+        -- need to install ncdu first
         local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
         function _NCDU_TOGGLE()
             ncdu:toggle()
         end
 
+        -- need to install htop first
         local htop = Terminal:new({ cmd = "htop", hidden = true })
         function _HTOP_TOGGLE()
             htop:toggle()
         end
 
-
-        -- 为 lazygit 添加快捷键绑定
-        vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", {noremap = true})
-        vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<CR>", {noremap = true})
-        vim.keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", {noremap = true})
+        vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Lazygit Toggle" })
+        vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Ncdu Toggle" })
+        vim.keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Htop Toggle" })
     end
 }

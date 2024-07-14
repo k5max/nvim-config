@@ -31,12 +31,12 @@ return {
                     -- "ccls", mason暂不支持
                     "clangd",
                     -- "cmake",
+                    "pyright",
                     -- "jdtls",
                     -- "lua_ls",
                     -- "html",
                     -- "cssls",
                     -- "tsserver",
-                    "pyright",
                 },
                 -- 是否应该自动安装
                 automatic_installation = true,
@@ -56,12 +56,12 @@ return {
                 -- ccls = require("lsp.ccls"),
                 clangd = require("lsp.clangd"),
                 -- cmake = require("lsp.cmake"),
+                pyright = require("lsp.pyright"),
                 -- jdtls = require("lsp.jdtls"),
                 -- lua_ls = require("lsp.lua"),
                 -- html = require("lsp.html"),
                 -- cssls = require("lsp.css"),
                 -- tsserver = require("lsp.tsserver"),
-                pyright = require("lsp.pyright"),
             }
 
             -- 开启上面指定语言的lsp设置
@@ -101,13 +101,12 @@ return {
                     -- end, opts)
                     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
                     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-                    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+                    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
                     vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
                 end,
             })
 
             -- diagnostics setting
-            vim.diagnostic.disable()
             vim.diagnostic.config({
                 virtual_text = true, -- 出错时在行尾显示错误信息
                 signs = true, -- sign 图标信息
@@ -122,14 +121,18 @@ return {
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
             end
 
-            -- customize toggle diagnostics status
             local function show_toggle_message(message, duration)
                 vim.api.nvim_echo({{message}}, false, {})
                 vim.defer_fn(function()
                     vim.cmd('echohl None | echomsg ""')
                 end, duration)
             end
-            local function toggle_diagnostics()
+
+            -- diagnostics keymapping 
+            -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+
+            -- customize toggle diagnostics status
+            vim.keymap.set('n', '<leader>qt', function()
                 if vim.diagnostic.is_disabled() then
                     vim.diagnostic.enable()
                     -- vim.api.nvim_echo({ { "Enable diagnostics" } }, false, {})
@@ -139,17 +142,13 @@ return {
                     -- vim.api.nvim_echo({ { "Disable diagnostics" } }, false, {})
                     show_toggle_message("Disable diagnostics", 1000)
                 end
-            end
-
-            -- diagnostics keymapping 
-            -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-            vim.keymap.set('n', '<leader>qt', toggle_diagnostics, { noremap = true, silent = true })
-            vim.keymap.set('n', '<leader>qd', vim.diagnostic.disable)
-            vim.keymap.set('n', '<leader>qe', vim.diagnostic.enable)
-            vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+            end, { noremap = true, silent = true, desc = "Diagnostic toggle" })
+            vim.keymap.set('n', '<leader>qd', vim.diagnostic.disable, { noremap = true, silent = true, desc = "Diagnostic Disable" })
+            vim.keymap.set('n', '<leader>qe', vim.diagnostic.enable, { noremap = true, silent = true, desc = "Diagnostic Enable" })
+            vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Diagnostic Open Float" })
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true, desc = "Diagnostic Goto Prev" })
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true, desc = "Diagnostic Goto Next" })
+            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { noremap = true, silent = true, desc = "Diagnostic Setloclist" })
         end
     }
 }

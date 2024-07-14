@@ -1,5 +1,4 @@
 return {
-    -- vim-tree + nvim-web-devicons => 文件树 + 图标
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function ()
@@ -147,13 +146,8 @@ return {
             },
         }
 
-        -- 快捷键绑定
-        local opt = {
-            noremap = true,
-            silent = true
-        }
-        vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
-        vim.keymap.set("n", "<leader>m", ":NvimTreeFindFile<CR>", opt)
+        vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "NvimTreeToggle" })
+        vim.keymap.set("n", "<leader>m", ":NvimTreeFindFile<CR>", { noremap = true, silent = true, desc = "NvimTreeFindFile" })
 
         -- 新建文件后自动打开
         local api = require("nvim-tree.api")
