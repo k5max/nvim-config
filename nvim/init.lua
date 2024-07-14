@@ -1,9 +1,9 @@
 -- 基础设置
 require("basic")
 -- 快捷键映射
-require("keymapping")
+require("keymappings")
 -- 自动命令
-require("autocmd")
+require("autocmds")
 -- 剪贴板设置
 require("clipboard")
 -- lazynvim 插件管理

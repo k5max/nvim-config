@@ -1,5 +1,4 @@
 return {
-    -- which-key => 键盘绑定导航
     "folke/which-key.nvim",
     config = function()
         local which_key = require("which-key")
@@ -71,7 +70,7 @@ return {
 
         local opts = {
             mode = "n",     -- NORMAL mode
-            prefix = "<Space>",
+            prefix = "<Space><Space>",
             buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
             silent = true,  -- use `silent` when creating keymaps
             noremap = true, -- use `noremap` when creating keymaps
@@ -80,55 +79,9 @@ return {
 
         local mappings = {
             ["a"] = { "<cmd>Alpha<cr>", "Welcome" },
-            ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+            ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
             ["p"] = { "<cmd>Telescope projects<cr>", "Recent Projects" },
 
-            g = {
-                name = "Git",
-                o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-                b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-                c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-                C = { "<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)" },
-            },
-
-            -- l = {
-            --     name = "LSP",
-            --     l = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-            --     d = {
-            --         "<cmd>Telescope lsp_document_diagnostics<cr>",
-            --         "Document Diagnostics",
-            --     },
-            --     w = {
-            --         "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-            --         "Workspace Diagnostics",
-            --     },
-            --     f = { "<cmd>Format<cr>", "Format" },
-            --     i = { "<cmd>LspInfo<cr>", "Info" },
-            --     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-            --     j = {
-            --         "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-            --         "Next Diagnostic",
-            --     },
-            --     k = {
-            --         "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-            --         "Prev Diagnostic",
-            --     },
-            --     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-            --     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-            --     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-            --     S = {
-            --         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-            --         "Workspace Symbols",
-            --     },
-            -- },
-            -- c = {
-            --     name = "Colorscheme",
-            --     s = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-            --     p = {
-            --         "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
-            --         "Colorscheme with Preview",
-            --     },
-            -- },
             t = {
                 name = "Terminal",
                 f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },

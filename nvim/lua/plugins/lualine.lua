@@ -1,6 +1,5 @@
 return {
     {
-        -- lualine + nvim-web-devicons => 状态栏 + 图标
         "nvim-lualine/lualine.nvim",
         dependencies = {
             { "nvim-tree/nvim-web-devicons", lazy = true },
@@ -8,7 +7,6 @@ return {
             { "ofseed/lualine-copilot", lazy = true }
         },
         config = function()
-            -- https://github.com/nvim-lualine/lualine.nvim
             local lualine = require("lualine")
             lualine.setup {
                 options = {

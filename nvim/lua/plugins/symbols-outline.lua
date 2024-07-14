@@ -59,7 +59,7 @@ return {
             }
         }
         require("symbols-outline").setup(opts)
-        -- 绑定快捷键
-        vim.keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", {silent = true, noremap = true})
+
+        vim.keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", {silent = true, noremap = true, desc = "SymbolsOutline" })
     end
 }

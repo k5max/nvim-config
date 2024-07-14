@@ -1,5 +1,4 @@
 return {
-    -- treesitter => 语法高亮
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
@@ -40,7 +39,6 @@ return {
             },
         })
 
-        -- 快捷键绑定
         -- 开启 Folding 模块 ==> zc，zo 会折叠 {} 里的内容
         vim.opt.foldmethod = "expr"
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
