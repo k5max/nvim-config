@@ -61,8 +61,8 @@ return {
                 -- 隐藏根目录
                 root_folder_label = false,
             },
-            -- 隐藏 .文件 
             filters = {
+                -- 隐藏.文件 
                 dotfiles = false,
                 -- 自定义隐藏文件夹
                 custom = { '^.git$' },
