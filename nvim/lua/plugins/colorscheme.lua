@@ -1,6 +1,15 @@
 -- 主题，同时lualine.lua也需要设置
 return {
     {
+        "folke/tokyonight.nvim",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        config = function()
+           vim.cmd[[colorscheme tokyonight-moon]]
+        end,
+    },
+    {
         "navarasu/onedark.nvim",
         enabled = false,
         lazy = false, -- make sure we load this during startup if it is your main colorscheme

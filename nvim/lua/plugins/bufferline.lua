@@ -4,10 +4,21 @@ return {
     config = function()
         local bufferline = require("bufferline")
         bufferline.setup({
+            highlights = {
+                buffer_selected = {
+                    bold = true,
+                    italic = true,
+                },
+            },
             options = {
                 -- 关闭 buffer 的命令，这里使用 moll/vim-bbye 的 :Bdelete 命令
                 close_command = "Bdelete! %d",
+                left_mouse_command = "buffer %d",
                 right_mouse_command = "Bdelete! %d",
+                -- indicator = {
+                --     style = 'underline',
+                -- },
+                max_name_length = 30,
                 -- 侧边栏配置
                 -- 左侧让出 nvim-tree 的位置，显示文字 File Explorer
                 offsets = {
@@ -20,7 +31,6 @@ return {
                 },
                 diagnostics = "nvim_lsp",
                 -- 可选，显示 LSP 报错图标
-                ---@diagnostic disable-next-line: unused-local
                 diagnostics_indicator = function(count, level, diagnostics_dict, context)
                     local s = " "
                     for e, n in pairs(diagnostics_dict) do
