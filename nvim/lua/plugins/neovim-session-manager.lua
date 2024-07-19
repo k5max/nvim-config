@@ -41,7 +41,7 @@ return {
         -- key mapping
         -- vim.keymap.set("n", "<leader>sl", "<cmd>SessionManager load_session<cr>", { noremap = true, silent = true, desc = "SessionManager Load Session" })
         -- vim.keymap.set("n", "<leader>sL", "<cmd>SessionManager load_last_session<cr>", { noremap = true, silent = true, desc = "SessionManager Load Last Session" })
-        -- vim.keymap.set("n", "<leader>sc", "<cmd>SessionManager save_current_session<cr>", { noremap = true, silent = true, desc = "SessionManager Save Current Session" })
+        -- vim.keymap.set("n", "<leader>ss", "<cmd>SessionManager save_current_session<cr>", { noremap = true, silent = true, desc = "SessionManager Save Current Session" })
         -- vim.keymap.set("n", "<leader>sd", "<cmd>SessionManager delete_current_dir_session<cr>", { noremap = true, silent = true, desc = "SessionManager Delete Current Dir Session" })
         -- vim.keymap.set("n", "<leader>sD", "<cmd>SessionManager delete_session<cr>", { noremap = true, silent = true, desc = "SessionManager Delete Session" })
         vim.keymap.set("n", "<leader>sl", function()
@@ -52,7 +52,7 @@ return {
             vim.cmd('SessionManager load_last_session')
             show_prompt_message("Load Last Session", 2000)
         end, { noremap = true, silent = true, desc = "SessionManager Load Last Session" })
-        vim.keymap.set("n", "<leader>sc", function()
+        vim.keymap.set("n", "<leader>ss", function()
             vim.cmd('SessionManager save_current_session')
             show_prompt_message("Save Current Session", 2000)
         end, { noremap = true, silent = true, desc = "SessionManager Save Current Session" })
