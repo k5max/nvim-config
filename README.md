@@ -1,5 +1,9 @@
 # NeoVim 配置
 
+## Require
+
+NeoVim >= 0.9.5
+
 ## 目录结构
 
 ```
@@ -26,7 +30,6 @@ nvim
         ├── flash.lua
         ├── gitsigns.lua
         ├── im-select.lua
-        ├── indent-blankline.lua
         ├── lsp.lua
         ├── lualine.lua
         ├── neovim-session-manager.lua
@@ -36,7 +39,7 @@ nvim
         ├── nvim-tree.lua
         ├── nvim-treesitter.lua
         ├── project.lua
-        ├── rainbow-delimiters.lua
+        ├── rainbow-brackets.lua
         ├── replacewithregister.lua
         ├── symbols-outline.lua
         ├── telescope.lua
@@ -249,7 +252,7 @@ plugins -- 插件文件配置所在目录
 | vim.lsp.buf.type_definition         | `<leader>D`  | normal         |
 | vim.lsp.buf.rename                  | `<leader>rn` | normal         |
 | vim.lsp.buf.code_action             | `<leader>ca` | normal、visual |
-| vim.lsp.buf.format { async = true } | `<leader>f`  | normal         |
+| vim.lsp.buf.format { async = true } | `<leader>lf` | normal         |
 | diagnostic toggle                   | `<leader>qt` | normal         |
 | diagnostic disable                  | `<leader>qd` | normal         |
 | diagnostic enable                   | `<leader>qe` | normal         |
