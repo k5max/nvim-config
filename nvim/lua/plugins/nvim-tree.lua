@@ -54,7 +54,7 @@ return {
             git = {
                 enable = true,
                 ignore = true,
-                timeout = 500,
+                timeout = 100,
             },
             renderer = {
                 group_empty = true,
