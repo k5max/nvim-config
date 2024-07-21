@@ -9,6 +9,9 @@ return {
                     bold = true,
                     italic = true,
                 },
+                indicator_selected = {
+                    fg = "#B4B4B4",
+                },
             },
             options = {
                 -- 关闭 buffer 的命令，这里使用 moll/vim-bbye 的 :Bdelete 命令
@@ -16,7 +19,8 @@ return {
                 left_mouse_command = "buffer %d",
                 right_mouse_command = "Bdelete! %d",
                 indicator = {
-                    style = 'underline',
+                    icon = '▎',
+                    style = 'icon',
                 },
                 max_name_length = 30,
                 -- 侧边栏配置
