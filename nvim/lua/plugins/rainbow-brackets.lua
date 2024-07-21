@@ -8,11 +8,11 @@ return {
 
             -- Multiple indent colors
             local highlight = {
-                "RainbowRed",
-                "RainbowYellow",
-                "RainbowBlue",
-                "RainbowOrange",
                 "RainbowGreen",
+                "RainbowYellow",
+                "RainbowRed",
+                "RainbowOrange",
+                "RainbowBlue",
                 "RainbowViolet",
                 "RainbowCyan",
             }
