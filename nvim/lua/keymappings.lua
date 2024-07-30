@@ -10,18 +10,24 @@ local terminal_opt = { silent = true }
 keymap.set("n", "<leader>sv", "<C-w>v", opt) -- vsplit
 keymap.set("n", "<leader>sh", "<C-w>s", opt) -- split
 keymap.set("n", "<leader>sc", "<C-w>c", opt) -- close
--- hjkl四个方向切换窗口
+keymap.set("n", "<leader>so", "<C-w>o", opt) -- close others
+-- 窗口导航
 keymap.set("n", "<C-h>", "<C-w>h", opt)
 keymap.set("n", "<C-j>", "<C-w>j", opt)
 keymap.set("n", "<C-k>", "<C-w>k", opt)
 keymap.set("n", "<C-l>", "<C-w>l", opt)
-keymap.set("n", "<C-t>", "<C-w>t", opt) -- 跳到最顶部窗口
---keymap.set("n", "", "<C-w>b", opt)    -- 跳到最底部窗口
--- 设置窗口比例
+-- keymap.set("n", "", "<C-w>p", opt) -- 切换刚才所在的窗口
+-- keymap.set("n", "", "<C-w>w", opt) -- 循环切换窗口
+-- keymap.set("n", "", "<C-w>t", opt) -- 跳到最顶部窗口
+-- keymap.set("n", "", "<C-w>b", opt) -- 跳到最底部窗口
+-- 设置窗口大小
 keymap.set("n", "<leader>h", "<C-w>5<", opt) -- 减小宽度
 keymap.set("n", "<leader>l", "<C-w>5>", opt) -- 增加宽度
 keymap.set("n", "<leader>j", "<C-w>5-", opt) -- 减小高度
 keymap.set("n", "<leader>k", "<C-w>5+", opt) -- 增加高度
+keymap.set("n", "<leader>=", "<C-w>=", opt) -- 等分窗口
+keymap.set("n", "<leader>_", "<C-w>_", opt) -- 最大化窗口高度
+keymap.set("n", "<leader>|", "<C-w>|", opt) -- 最大化窗口宽度
 
 -- Place the two screens up and down
 keymap.set("n", "sh", "<C-w>t<C-w>K", opt)

@@ -28,15 +28,11 @@ return {
             -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
             mason_config.setup({
                 ensure_installed = {
-                    -- "ccls", mason暂不支持
                     "clangd",
                     -- "cmake",
                     "pyright",
                     -- "jdtls",
-                    -- "lua_ls",
-                    -- "html",
-                    -- "cssls",
-                    -- "tsserver",
+                    "lua_ls",
                 },
                 -- 是否应该自动安装
                 automatic_installation = true,
@@ -53,15 +49,11 @@ return {
             -- key 必须为下列网址列出的 server name，不可以随便写
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
             local servers = {
-                -- ccls = require("lsp.ccls"),
                 clangd = require("lsp.clangd"),
                 -- cmake = require("lsp.cmake"),
                 pyright = require("lsp.pyright"),
                 -- jdtls = require("lsp.jdtls"),
-                -- lua_ls = require("lsp.lua"),
-                -- html = require("lsp.html"),
-                -- cssls = require("lsp.css"),
-                -- tsserver = require("lsp.tsserver"),
+                lua_ls = require("lsp.lua"),
             }
 
             -- 开启上面指定语言的lsp设置
@@ -102,7 +94,7 @@ return {
                     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
                     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
                     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-                    vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, opts)
+                    vim.keymap.set({ 'n', 'v' }, '<leader>lf', function() vim.lsp.buf.format { async = true } end, opts)
                 end,
             })
 
