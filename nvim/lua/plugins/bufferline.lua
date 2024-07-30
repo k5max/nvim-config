@@ -60,5 +60,7 @@ return {
         vim.keymap.set("n", "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", {noremap = true, silent = true, desc = "Close Left Buffers" })
         vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", {noremap = true, silent = true, desc = "Toggle Pin Buffers" })
         vim.keymap.set("n", "<leader>bP", "<cmd>BufferLineGroupClose ungrouped<cr>", {noremap = true, silent = true, desc = "Close Non-Pinned Buffers" })
+        --  jump between two buffers alternately (Ctrl-^ or Ctrl-6 on a qwertz keyboard)
+        vim.keymap.set("n", "<leader>bb", "<C-^>", {noremap = true, silent = true, desc = "Last Buffer" })
     end
 }

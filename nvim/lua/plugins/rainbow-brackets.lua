@@ -45,8 +45,8 @@ return {
                 scope = {
                     enabled = true,
                     highlight = highlight,
-                    show_start = true,
-                    show_end = true,
+                    show_start = false,
+                    show_end = false,
                 },
                 exclude = {
                     filetypes = {

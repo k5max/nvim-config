@@ -179,6 +179,7 @@ plugins -- 插件文件配置所在目录
 | BufferLineCloseLeft            | `<leader>bh` | normal |
 | BufferLineTogglePin            | `<leader>bp` | normal |
 | BufferLineGroupClose ungrouped | `<leader>bP` | normal |
+| Last Buffer                    | `<leader>bb` | normal |
 
 #### cmp
 
