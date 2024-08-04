@@ -28,7 +28,6 @@ keymap.set("n", "<leader>k", "<C-w>5+", opt) -- 增加高度
 keymap.set("n", "<leader>=", "<C-w>=", opt) -- 等分窗口
 keymap.set("n", "<leader>_", "<C-w>_", opt) -- 最大化窗口高度
 keymap.set("n", "<leader>|", "<C-w>|", opt) -- 最大化窗口宽度
-
 -- Place the two screens up and down
 keymap.set("n", "sh", "<C-w>t<C-w>K", opt)
 -- Place the two screens side by side

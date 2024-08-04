@@ -1,50 +1,6 @@
 -- 主题，同时lualine.lua也需要设置
 return {
     {
-        "folke/tokyonight.nvim",
-        enabled = false,
-        lazy = false,
-        priority = 1000,
-        config = function()
-           vim.cmd[[colorscheme tokyonight-moon]]
-        end,
-    },
-    {
-        "navarasu/onedark.nvim",
-        enabled = false,
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            -- 使用 pcall 命令
-            -- local colorscheme = "onedark"
-            -- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-            -- if not status_ok then
-            --     vim.notify("colorscheme " .. colorscheme .. " not found")
-            --     return
-            -- end
-            -- vim.cmd("colorscheme onedark")
-            require('onedark').setup {
-                style = 'dark' -- Themes: dark darker cool deep warm warmer
-            }
-            require('onedark').load() -- 跟vim.cmd("colorscheme onedark")效果一样，是两种不同的应用主题的方式
-        end,
-    },
-    {
-        "morhetz/gruvbox",
-        enabled = false,
-        lazy = false,
-        priority = 1000,
-        config = function ()
-            -- vim.g.gruvbox_contrast_dark = "medium"
-            -- vim.g.gruvbox_termcolors = 256,
-            -- vim.g.gruvbox_undercurl = 1,
-            -- vim.g.gruvbox_underline = 1,
-            -- vim.g.gruvbox_bold = 1,
-            -- vim.g.gruvbox_italic = 1
-            vim.cmd("colorscheme gruvbox")
-        end
-    },
-    {
         -- lua gruvbox
         "ellisonleao/gruvbox.nvim",
         enabled = true,
@@ -79,10 +35,97 @@ return {
         end,
     },
     {
+        "folke/tokyonight.nvim",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        config = function()
+           vim.cmd[[colorscheme tokyonight-moon]]
+        end,
+    },
+    {
+        "navarasu/onedark.nvim",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            -- 使用 pcall 命令
+            -- local colorscheme = "onedark"
+            -- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+            -- if not status_ok then
+            --     vim.notify("colorscheme " .. colorscheme .. " not found")
+            --     return
+            -- end
+            -- vim.cmd("colorscheme onedark")
+            require('onedark').setup {
+                style = 'dark' -- Themes: dark darker cool deep warm warmer
+            }
+            require('onedark').load() -- 跟vim.cmd("colorscheme onedark")效果一样，是两种不同的应用主题的方式
+        end,
+    },
+    {
+        "catppuccin/nvim",
+        enabled = false,
+        lazy = false,
+        name = "catppuccin",
+        priority = 1000,
+        config = function ()
+            require("catppuccin").setup({
+                flavour = "auto", -- latte, frappe, macchiato, mocha
+                background = { -- :h background
+                    light = "latte",
+                    dark = "macchiato",
+                },
+                transparent_background = false, -- disables setting the background color.
+                show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+                term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+                dim_inactive = {
+                    enabled = false, -- dims the background color of inactive window
+                    shade = "dark",
+                    percentage = 0.15, -- percentage of the shade to apply to the inactive window
+                },
+                no_italic = false, -- Force no italic
+                no_bold = false, -- Force no bold
+                no_underline = false, -- Force no underline
+                styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+                    comments = { "italic" }, -- Change the style of comments
+                    conditionals = { "italic" },
+                    loops = {},
+                    functions = {},
+                    keywords = {},
+                    strings = {},
+                    variables = {},
+                    numbers = {},
+                    booleans = {},
+                    properties = {},
+                    types = {},
+                    operators = {},
+                    -- miscs = {}, -- Uncomment to turn off hard-coded styles
+                },
+                color_overrides = {},
+                custom_highlights = {},
+                default_integrations = true,
+                integrations = {
+                    cmp = true,
+                    gitsigns = true,
+                    nvimtree = true,
+                    treesitter = true,
+                    notify = false,
+                    mini = {
+                        enabled = true,
+                        indentscope_color = "",
+                    },
+                    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+                },
+            })
+            vim.cmd("colorscheme catppuccin")
+        end
+    },
+    {
         "sainnhe/sonokai",
         enabled = false,
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        lazy = false,
+        priority = 1000,
         config = function()
             vim.cmd("colorscheme sonokai")
         end,
@@ -90,8 +133,8 @@ return {
     {
         "sainnhe/everforest",
         enabled = false,
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        lazy = false,
+        priority = 1000,
         config = function()
             vim.cmd("colorscheme everforest")
         end,
