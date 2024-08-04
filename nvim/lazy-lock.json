@@ -5,6 +5,7 @@
   "alpha-nvim": { "branch": "main", "commit": "41283fb402713fc8b327e60907f74e46166f4cfd" },
   "argtextobj.vim": { "branch": "master", "commit": "f3fbe427f7b4ec436416a5816d714dc917dc530b" },
   "bufferline.nvim": { "branch": "main", "commit": "0b2fd861eee7595015b6561dade52fb060be10c4" },
+  "catppuccin": { "branch": "main", "commit": "10eda02ea4faa7d1f94e77a3410a4ae91c25c5f5" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },

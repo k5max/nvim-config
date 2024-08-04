@@ -97,6 +97,20 @@ return {
                     vim.keymap.set({ 'n', 'v' }, '<leader>lf', function() vim.lsp.buf.format { async = true } end, opts)
                 end,
             })
+            -- nvim 0.10.0 default maps K to vim.lsp.buf.hover() in normal mode.
+            -- K mapping
+            vim.keymap.set("n", "K", function()
+                local cw = vim.fn.expand("<cword>")
+                if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
+                    vim.api.nvim_command("h " .. cw)
+                -- hover already keymapping gh
+                -- elseif vim.lsp.buf_get_clients() and next(vim.lsp.buf_get_clients()) then
+                --     vim.lsp.buf.hover()
+                else
+                    -- keywordprg (default ":Man", Windows: ":help")
+                    vim.api.nvim_command(string.format("%s %s", vim.o.keywordprg, cw))
+                end
+            end, {silent = true})
 
             -- diagnostics setting
             vim.diagnostic.config({

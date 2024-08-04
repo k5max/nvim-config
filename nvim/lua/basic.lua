@@ -63,7 +63,7 @@ vim.o.splitright = true
 -- 自动补全不自动选中
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 -- 样式
-vim.o.background = "dark"
+vim.o.background = "dark" -- light or dark
 vim.o.termguicolors = true
 -- 补全增强
 vim.o.wildmenu = true
