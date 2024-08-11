@@ -45,6 +45,7 @@ nvim
         ├── telescope.lua
         ├── toggleterm.lua
         ├── vim-bookmarks.lua
+        ├── vim-indent-object.lua
         └── vim-visual-multi.lua
 ```
 
@@ -250,7 +251,8 @@ plugins -- 插件文件配置所在目录
 | vim.lsp.buf.hover                   | `gh`         | normal         |
 | vim.lsp.buffer.implementation       | `gi`         | normal         |
 | vim.lsp.buf.references              | `gr`         | normal         |
-| vim.lsp.buf.type_definition         | `<leader>D`  | normal         |
+| vim.lsp.buf.type_definition         | `gt`         | normal         |
+| vim.lsp.buf.typehierarchy           | `gT`         | normal         |
 | vim.lsp.buf.rename                  | `<leader>rn` | normal         |
 | vim.lsp.buf.code_action             | `<leader>ca` | normal、visual |
 | vim.lsp.buf.format { async = true } | `<leader>lf` | normal         |
