@@ -92,7 +92,7 @@ return {
                     --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     -- end, opts)
                     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-                    vim.keymap.set('n', 'gT', vim.lsp.buf.typehierarchy, opts)
+                    -- vim.keymap.set('n', 'gT', vim.lsp.buf.typehierarchy, opts)  -- require nvim >= 0.10.0
                     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
                     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
                     vim.keymap.set({ 'n', 'v' }, '<leader>lf', function() vim.lsp.buf.format { async = true } end, opts)
