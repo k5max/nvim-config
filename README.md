@@ -2,7 +2,9 @@
 
 ## Require
 
-NeoVim >= 0.9.5
+- [neovim](https://github.com/neovim/neovim) >= 0.9.5
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [nerdfont](https://www.nerdfonts.com/font-downloads)
 
 ## 目录结构
 

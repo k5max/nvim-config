@@ -1,6 +1,7 @@
 return {
     {
 		"github/copilot.vim",
+        enabled = false,
 		config = function()
             -- 默认是否开启
 			vim.g.copilot_enabled = false
