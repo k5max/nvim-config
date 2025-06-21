@@ -1,10 +1,9 @@
 -- This file configures some plugins related to LSP
 return {
     {
-        -- installer
-        "williamboman/mason.nvim",
+        -- mason 和 mason-lspconfig 负责安装和管理 LSP 服务器
+        "mason-org/mason.nvim",
         config = function()
-            -- mason 和 mason-lspconfig 负责安装和管理 LSP 服务器
             local mason = require("mason")
             -- :h mason-default-settings
             -- ~/.local/share/nvim/mason
@@ -20,8 +19,9 @@ return {
         end
     },
     {
-        -- mason.nvim和neovim官方lspconfig的桥梁
-        "williamboman/mason-lspconfig.nvim",
+        -- mason.nvim 和 nvim-lspconfig 的桥梁
+        "mason-org/mason-lspconfig.nvim",
+        tag = "v1.32.0",
         config = function()
             local mason_config = require("mason-lspconfig")
             -- mason-lspconfig uses the `lspconfig` server names in the APIs it exposes - not `mason.nvim` package names
