@@ -2,70 +2,9 @@
 
 ## Require
 
-- [neovim](https://github.com/neovim/neovim) >= 0.9.5
+- [neovim](https://github.com/neovim/neovim)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [nerdfont](https://www.nerdfonts.com/font-downloads)
-
-## 目录结构
-
-```
-nvim
-├── init.lua
-├── lazy-lock.json
-└── lua
-    ├── autocmds.lua
-    ├── basic.lua
-    ├── clipborad.lua
-    ├── keymappings.lua
-    ├── lsp
-    │   ├── clangd.lua
-    │   ├── pyright.lua
-    │   └── ...
-    └── plugins
-        ├── alpha.lua
-        ├── argtextobj.lua
-        ├── bufferline.lua
-        ├── cmp.lua
-        ├── colorscheme.lua
-        ├── comment.lua
-        ├── copilot.lua
-        ├── flash.lua
-        ├── gitsigns.lua
-        ├── im-select.lua
-        ├── lsp.lua
-        ├── lualine.lua
-        ├── neovim-session-manager.lua
-        ├── nvim-autopairs.lua
-        ├── nvim-colorizer.lua
-        ├── nvim-surround.lua
-        ├── nvim-tree.lua
-        ├── nvim-treesitter.lua
-        ├── project.lua
-        ├── rainbow-brackets.lua
-        ├── replacewithregister.lua
-        ├── symbols-outline.lua
-        ├── telescope.lua
-        ├── toggleterm.lua
-        ├── vim-bookmarks.lua
-        ├── vim-indent-object.lua
-        └── vim-visual-multi.lua
-```
-
-init.lua -- init文件
-
-autocmds.lua -- neovim 自动命令
-
-basic.lua -- neovim 基本配置
-
-clipborad.lua -- neovim 剪贴板设置
-
-keymappings.lua -- neovim 基本快捷键配置
-
-lsp -- lsp配置文件所在目录
-
-plugins -- 插件文件配置所在目录
-
-
 
 ## 插件列表
 
@@ -88,7 +27,6 @@ plugins -- 插件文件配置所在目录
 | copilot.vim             | GitHub Copilot for Vim and Neovim                            | https://github.com/github/copilot.vim                  |
 | flash.nvim              | flash.nvim lets you navigate your code with search labels, enhanced character motions, and Treesitter integration. | https://github.com/folke/flash.nvim                    |
 | gitsigns.nvim           | Super fast git decorations implemented purely in Lua.        | https://github.com/lewis6991/gitsigns.nvim             |
-| im-select.nvim          | Switch Input Method automatically depends on NeoVim's edit mode. | https://github.com/keaising/im-select.nvim             |
 | indent-blankline.nvim   | This plugin adds indentation guides to all lines (including empty lines). | https://github.com/lukas-reineke/indent-blankline.nvim |
 | lualine.nvim            | A blazing fast and easy to configure Neovim statusline written in Lua. | https://github.com/nvim-lualine/lualine.nvim           |
 | nvim-autopairs          | A super powerful autopair plugin for Neovim that supports multiple characters. | https://github.com/windwp/nvim-autopairs               |
