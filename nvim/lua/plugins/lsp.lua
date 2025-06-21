@@ -5,7 +5,6 @@ return {
         "mason-org/mason.nvim",
         config = function()
             local mason = require("mason")
-            -- :h mason-default-settings
             -- ~/.local/share/nvim/mason
             mason.setup({
                 ui = {
@@ -24,14 +23,10 @@ return {
         tag = "v1.32.0",
         config = function()
             local mason_config = require("mason-lspconfig")
-            -- mason-lspconfig uses the `lspconfig` server names in the APIs it exposes - not `mason.nvim` package names
-            -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
             mason_config.setup({
                 ensure_installed = {
                     "clangd",
-                    -- "cmake",
                     "pyright",
-                    -- "jdtls",
                     "lua_ls",
                 },
                 -- 是否应该自动安装
@@ -44,30 +39,76 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
-            -- language server 安装列表
-            -- { key: 服务器名， value: 配置文件 }
-            -- key 必须为下列网址列出的 server name，不可以随便写
-            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-            local servers = {
-                clangd = require("lsp.clangd"),
-                -- cmake = require("lsp.cmake"),
-                pyright = require("lsp.pyright"),
-                -- jdtls = require("lsp.jdtls"),
-                lua_ls = require("lsp.lua"),
+            -- clangd
+            lspconfig.clangd.setup {
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                cmd = {
+                    "clangd",
+                    "--background-index", -- 后台建立索引，并持久化到disk
+                    "--clang-tidy",       -- 开启clang-tidy
+                    -- 指定clang-tidy的检查参数， 摘抄自cmu15445. 全部参数可参考 https://clang.llvm.org/extra/clang-tidy/checks
+                    "--clang-tidy-checks=bugprone-*, clang-analyzer-*, google-*, modernize-*, performance-*, portability-*, readability-*, -bugprone-too-small-loop-variable, -clang-analyzer-cplusplus.NewDelete, -clang-analyzer-cplusplus.NewDeleteLeaks, -modernize-use-nodiscard, -modernize-avoid-c-arrays, -readability-magic-numbers, -bugprone-branch-clone, -bugprone-signed-char-misuse, -bugprone-unhandled-self-assignment, -clang-diagnostic-implicit-int-float-conversion, -modernize-use-auto, -modernize-use-trailing-return-type, -readability-convert-member-functions-to-static, -readability-make-member-function-const, -readability-qualified-auto, -readability-redundant-access-specifiers,",
+                    "--completion-style=detailed",
+                    "--cross-file-rename=true",
+                    "--header-insertion=iwyu",
+                    "--pch-storage=memory",
+                    -- 启用这项时，补全函数时，将会给参数提供占位符，键入后按 Tab 可以切换到下一占位符
+                    "--function-arg-placeholders=false",
+                    "--log=verbose",
+                    "--ranking-model=decision_forest",
+                    -- 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
+                    "--header-insertion-decorators",
+                    "-j=12",
+                    "--pretty",
+                    "--offset-encoding=utf-16",
+                },
             }
+            -- pyright
+            lspconfig.pyright.setup {
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                settings = {
+                    python = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            diagnosticMode = "workspace",
+                            useLibraryCodeForTypes = true
+                        }
+                    }
+                }
+            }
+            -- lua_ls
+            lspconfig.lua_ls.setup {
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                on_init = function(client)
+                    local path = client.workspace_folders[1].name
+                        if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+                    return
+                    end
 
-            -- 开启上面指定语言的lsp设置
-            for name, config in pairs(servers) do
-                if config ~= nil and type(config) == "table" then
-                    -- 每个language server 初始化方法并不完全相同，用同一套初始化流程并不能满足不同语言定制的需要，
-                    -- 这里将初始化方法抽离出来，让每个语言的配置文件来负责初始化，这里来负责调用。
-                    -- 本质上就是封装了一层 custom_on_setup 方法
-                    config.custom_on_setup(lspconfig[name])
-                else
-                    -- 如果没有自定义启动方法，就使用lspconfig默认启动方法，传入默认空参
-                    lspconfig[name].setup({})
-                end
-            end
+                    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using
+                            -- (most likely LuaJIT in the case of Neovim)
+                            version = 'LuaJIT'
+                        },
+                        -- Make the server aware of Neovim runtime files
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                            vim.env.VIMRUNTIME
+                            -- Depending on the usage, you might want to add additional paths here.
+                            -- "${3rd}/luv/library"
+                            -- "${3rd}/busted/library",
+                            }
+                            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                            -- library = vim.api.nvim_get_runtime_file("", true)
+                        }
+                    })
+                end,
+                settings = {
+                    Lua = {}
+                }
+            }
 
             -- Use LspAttach autocommand to only map the following keys
             -- after the language server attaches to the current buffer
@@ -99,20 +140,6 @@ return {
                     vim.keymap.set({ 'n', 'v' }, '<leader>lf', function() vim.lsp.buf.format { async = true } end, opts)
                 end,
             })
-            -- nvim 0.10.0 default maps K to vim.lsp.buf.hover() in normal mode.
-            -- K mapping
-            vim.keymap.set("n", "K", function()
-                local cw = vim.fn.expand("<cword>")
-                if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
-                    vim.api.nvim_command("h " .. cw)
-                -- hover already keymapping gh
-                -- elseif vim.lsp.buf_get_clients() and next(vim.lsp.buf_get_clients()) then
-                --     vim.lsp.buf.hover()
-                else
-                    -- keywordprg (default ":Man", Windows: ":help")
-                    vim.api.nvim_command(string.format("%s %s", vim.o.keywordprg, cw))
-                end
-            end, {silent = true})
 
             -- diagnostics setting
             vim.diagnostic.config({
