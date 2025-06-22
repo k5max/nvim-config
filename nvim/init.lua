@@ -4,6 +4,8 @@ require("basic")
 require("keymappings")
 -- 自动命令
 require("autocmds")
+-- LSP
+require("lsp")
 -- 剪贴板设置
 require("clipboard")
 -- lazynvim 插件管理
