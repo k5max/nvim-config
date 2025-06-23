@@ -69,7 +69,7 @@ return {
                     else
                         gitsigns.nav_hunk("next")
                     end
-                end, { noremap = true, silent = true, desc = "Gitsigns Next Hunk" })
+                end, { noremap = true, silent = true, desc = "Gitsigns: Next Hunk" })
 
                 map("n", "[c", function()
                     if vim.wo.diff then
@@ -77,7 +77,7 @@ return {
                     else
                         gitsigns.nav_hunk("prev")
                     end
-                end, { noremap = true, silent = true, desc = "Gitsigns Prev Hunk" })
+                end, { noremap = true, silent = true, desc = "Gitsigns: Prev Hunk" })
 
                 map("n", "<leader>hj", function()
                     if vim.wo.diff then
@@ -85,7 +85,7 @@ return {
                     else
                         gitsigns.nav_hunk("next")
                     end
-                end, { noremap = true, silent = true, desc = "Gitsigns Next Hunk" })
+                end, { noremap = true, silent = true, desc = "Gitsigns: Next Hunk" })
 
                 map("n", "<leader>hk", function()
                     if vim.wo.diff then
@@ -93,27 +93,27 @@ return {
                     else
                         gitsigns.nav_hunk("prev")
                     end
-                end, { noremap = true, silent = true, desc = "Gitsigns Prev Hunk" })
+                end, { noremap = true, silent = true, desc = "Gitsigns: Prev Hunk" })
 
                 -- Actions
-                map("n", "<leader>hs", gitsigns.stage_hunk, { noremap = true, silent = true, desc = "Gitsigns Stage Hunk" })
-                map("n", "<leader>hr", gitsigns.reset_hunk, { noremap = true, silent = true, desc = "Gitsigns Reset Hunk" })
-                map("n", "<leader>hu", gitsigns.undo_stage_hunk, { noremap = true, silent = true, desc = "Gitsigns Undo Stage Hunk" })
-                map("n", "<leader>hp", gitsigns.preview_hunk, { noremap = true, silent = true, desc = "Gitsigns Preview Hunk" })
-                map("v", "<leader>hs", function() gitsigns.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { noremap = true, silent = true, desc = "Gitsigns Stage Hunk(Visual)" })
-                map("v", "<leader>hr", function() gitsigns.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { noremap = true, silent = true, desc = "Gitsigns Reset Hunk(Visual)" })
-                map("v", "<leader>hu", function() gitsigns.undo_stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { noremap = true, silent = true, desc = "Gitsigns Undo Stage Hunk(Visual)" })
-                map("n", "<leader>hS", gitsigns.stage_buffer, { noremap = true, silent = true, desc = "Gitsigns Stage Buffer" })
-                map("n", "<leader>hR", gitsigns.reset_buffer, { noremap = true, silent = true, desc = "Gitsigns Reset Buffer" })
-                map("n", "<leader>hb", function() gitsigns.blame_line{full=true} end, { noremap = true, silent = true, desc = "Gitsigns Blame Line" })
-                map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { noremap = true, silent = true, desc = "Gitsigns Toggle Current Line Blame" })
-                map("n", "<leader>td", gitsigns.toggle_deleted, { noremap = true, silent = true, desc = "Gitsigns Toggle Deleted" })
+                map("n", "<leader>hs", gitsigns.stage_hunk, { noremap = true, silent = true, desc = "Gitsigns: Stage Hunk" })
+                map("n", "<leader>hr", gitsigns.reset_hunk, { noremap = true, silent = true, desc = "Gitsigns: Reset Hunk" })
+                map("n", "<leader>hu", gitsigns.undo_stage_hunk, { noremap = true, silent = true, desc = "Gitsigns: Undo Stage Hunk" })
+                map("n", "<leader>hp", gitsigns.preview_hunk, { noremap = true, silent = true, desc = "Gitsigns: Preview Hunk" })
+                map("v", "<leader>hs", function() gitsigns.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { noremap = true, silent = true, desc = "Gitsigns: Stage Hunk(Visual)" })
+                map("v", "<leader>hr", function() gitsigns.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { noremap = true, silent = true, desc = "Gitsigns: Reset Hunk(Visual)" })
+                map("v", "<leader>hu", function() gitsigns.undo_stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { noremap = true, silent = true, desc = "Gitsigns: Undo Stage Hunk(Visual)" })
+                map("n", "<leader>hS", gitsigns.stage_buffer, { noremap = true, silent = true, desc = "Gitsigns: Stage Buffer" })
+                map("n", "<leader>hR", gitsigns.reset_buffer, { noremap = true, silent = true, desc = "Gitsigns: Reset Buffer" })
+                map("n", "<leader>hb", function() gitsigns.blame_line{full=true} end, { noremap = true, silent = true, desc = "Gitsigns: Blame Line" })
+                map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { noremap = true, silent = true, desc = "Gitsigns: Toggle Current Line Blame" })
+                map("n", "<leader>td", gitsigns.toggle_deleted, { noremap = true, silent = true, desc = "Gitsigns: Toggle Deleted" })
                 -- recommend lazygit for diff
-                map("n", "<leader>hd", gitsigns.diffthis, { noremap = true, silent = true, desc = "Gitsigns Diffthis" })
-                map("n", "<leader>hD", function() gitsigns.diffthis("~") end, { noremap = true, silent = true, desc = "Gitsigns Diffthis~" })
+                map("n", "<leader>hd", gitsigns.diffthis, { noremap = true, silent = true, desc = "Gitsigns: Diffthis" })
+                map("n", "<leader>hD", function() gitsigns.diffthis("~") end, { noremap = true, silent = true, desc = "Gitsigns: Diffthis~" })
 
                 -- Text object
-                map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", { noremap = true, silent = true, desc = "Gitsigns Select Hunk" })
+                map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", { noremap = true, silent = true, desc = "Gitsigns: Select Hunk" })
             end
         })
     end

@@ -146,8 +146,8 @@ return {
             },
         }
 
-        vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "NvimTreeToggle" })
-        vim.keymap.set("n", "<leader>m", ":NvimTreeFindFile<CR>", { noremap = true, silent = true, desc = "NvimTreeFindFile" })
+        vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "NvimTree: Toggle" })
+        vim.keymap.set("n", "<leader>m", ":NvimTreeFindFile<CR>", { noremap = true, silent = true, desc = "NvimTree: Find File" })
 
         -- 新建文件后自动打开
         local api = require("nvim-tree.api")

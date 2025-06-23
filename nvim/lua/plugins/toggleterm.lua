@@ -26,13 +26,12 @@ return {
         })
 
         function _G.set_terminal_keymaps()
-            local opts = {buffer = 0}
-            vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-            vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-            vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-            vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-            vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-            vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+            vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { buffer = 0 })
+            vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], { buffer = 0 })
+            vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], { buffer = 0 })
+            vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], { buffer = 0 })
+            vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], { buffer = 0 })
+            vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { buffer = 0 })
         end
 
         vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -56,11 +55,11 @@ return {
             htop:toggle()
         end
 
-        vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", { noremap = true, silent = true, desc = "Lazygit Toggle" })
-        vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", { noremap = true, silent = true, desc = "Ncdu Toggle" })
-        vim.keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<cr>", { noremap = true, silent = true, desc = "Htop Toggle" })
-        vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { noremap = true, silent = true, desc = "Terminal Float" })
-        vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=10<cr>", { noremap = true, silent = true, desc = "Terminal Horizontal" })
-        vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=80<cr>", { noremap = true, silent = true, desc = "Terminal Vertical" })
+        vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", { noremap = true, silent = true, desc = "ToggleTerm: Lazygit Toggle" })
+        vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", { noremap = true, silent = true, desc = "ToggleTerm: Ncdu Toggle" })
+        vim.keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<cr>", { noremap = true, silent = true, desc = "ToggleTerm: Htop Toggle" })
+        vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { noremap = true, silent = true, desc = "ToggleTerm: Terminal Float" })
+        vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=10<cr>", { noremap = true, silent = true, desc = "ToggleTerm: Terminal Horizontal" })
+        vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=80<cr>", { noremap = true, silent = true, desc = "ToggleTerm: Terminal Vertical" })
     end
 }

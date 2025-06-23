@@ -60,6 +60,6 @@ return {
         }
         require("symbols-outline").setup(opts)
 
-        vim.keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", {silent = true, noremap = true, desc = "SymbolsOutline" })
+        vim.keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", {silent = true, noremap = true, desc = "SymbolsOutline: Toggle" })
     end
 }

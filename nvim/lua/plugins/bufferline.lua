@@ -46,21 +46,22 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers previewer=false<cr>", {noremap = true, silent = true, desc = "Telescope Buffers" })
+        vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers previewer=false<cr>", { noremap = true, silent = true, desc = "Telescope: Buffers" })
         -- 关闭 使用"moll/vim-bbye"
-        vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete!<cr>", {noremap = true, silent = true, desc = "Close Buffer" })
-        vim.keymap.set("n", "<leader>bC", "<cmd>BufferLinePickClose<cr>", {noremap = true, silent = true, desc = "Cloce Pick Buffer" })
-        vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", {noremap = true, silent = true, desc = "Close Other Buffers" })
-        vim.keymap.set("n", "<leader>bg", "<cmd>BufferLinePick<cr>", {noremap = true, silent = true, desc = "Pick Buffer" })
-        vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineCyclePrev<cr>", {noremap = true, silent = true, desc = "Select Prev Buffer" })
-        vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineCycleNext<cr>", {noremap = true, silent = true, desc = "Select Next Buffer" })
-        vim.keymap.set("n", "<leader>bK", "<cmd>BufferLineMovePrev<cr>", {noremap = true, silent = true, desc = "Move Buffer Prev" })
-        vim.keymap.set("n", "<leader>bJ", "<cmd>BufferLineMoveNext<cr>", {noremap = true, silent = true, desc = "Move Buffer Pext" })
-        vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineCloseRight<cr>", {noremap = true, silent = true, desc = "Close Right Buffer" })
-        vim.keymap.set("n", "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", {noremap = true, silent = true, desc = "Close Left Buffers" })
-        vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", {noremap = true, silent = true, desc = "Toggle Pin Buffers" })
-        vim.keymap.set("n", "<leader>bP", "<cmd>BufferLineGroupClose ungrouped<cr>", {noremap = true, silent = true, desc = "Close Non-Pinned Buffers" })
+        vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete!<cr>", { noremap = true, silent = true, desc = "BufferLine: Close Buffer" })
+        vim.keymap.set("n", "<leader>bC", "<cmd>BufferLinePickClose<cr>", { noremap = true, silent = true, desc = "BufferLine: Close Pick Buffer" })
+        vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", { noremap = true, silent = true, desc = "BufferLine: Close Other Buffers" })
+        vim.keymap.set("n", "<leader>bg", "<cmd>BufferLinePick<cr>", { noremap = true, silent = true, desc = "BufferLine: Pick Buffer" })
+        vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true, desc = "BufferLine: Select Prev Buffer" })
+        vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true, desc = "BufferLine: Select Next Buffer" })
+
+        vim.keymap.set("n", "<leader>bK", "<cmd>BufferLineMovePrev<cr>", { noremap = true, silent = true, desc = "BufferLine: Move Buffer Prev" })
+        vim.keymap.set("n", "<leader>bJ", "<cmd>BufferLineMoveNext<cr>", { noremap = true, silent = true, desc = "BufferLine: Move Buffer Pext" })
+        vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineCloseRight<cr>", { noremap = true, silent = true, desc = "BufferLine: Close Right Buffers" })
+        vim.keymap.set("n", "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", { noremap = true, silent = true, desc = "BufferLine: Close Left Buffers" })
+        vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { noremap = true, silent = true, desc = "BufferLine: Toggle Pin Buffer" })
+        vim.keymap.set("n", "<leader>bP", "<cmd>BufferLineGroupClose ungrouped<cr>", { noremap = true, silent = true, desc = "BufferLine: Close Non-Pinned Buffers" })
         --  jump between two buffers alternately (Ctrl-^ or Ctrl-6 on a qwertz keyboard)
-        vim.keymap.set("n", "<leader>bb", "<C-^>", {noremap = true, silent = true, desc = "Last Buffer" })
+        vim.keymap.set("n", "<leader>bb", "<C-^>", { noremap = true, silent = true, desc = "BufferLine: Last Buffer" })
     end
 }
