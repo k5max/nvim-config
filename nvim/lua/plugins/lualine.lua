@@ -14,9 +14,9 @@ return {
                     -- All available themes are listed in https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
                     -- auto is a special theme. It will automatically load theme for your colorscheme.
                     -- If there's no theme available for your colorscheme then it'll try it's best to generate one.
-                    theme = 'auto',
-                    component_separators = { left = '|', right = '|'},
-                    section_separators = { left = '', right = ''},
+                    theme = "auto",
+                    component_separators = { left = "|", right = "|" },
+                    section_separators = { left = "", right = "" },
                     disabled_filetypes = {
                         statusline = {},
                         winbar = {},
@@ -31,13 +31,13 @@ return {
                     }
                 },
                 sections = {
-                    lualine_a = {'mode'},
-                    lualine_b = {'branch', 'diff', 'diagnostics'},
-                    lualine_c = {{'filename', path = 3}},
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch", "diff", "diagnostics" },
+                    lualine_c = { { "filename", path = 3 } },
                     lualine_x = {
                         {
                             -- 结合ofseed/lualine-copilot插件，显示copilot状态
-                            'copilot',
+                            "copilot",
                             -- default is true.
                             show_running = true,
                             symbols = {
@@ -46,9 +46,9 @@ return {
                                 running = " ",
                             }
                         },
-                        'encoding',
+                        "encoding",
                         {
-                            'fileformat',
+                            "fileformat",
                             symbols = {
                                 unix = "",
                                 dos = "",
@@ -56,16 +56,16 @@ return {
                             }
                             -- symbols = {unix = "LF", dos = "CRLF", mac = "CR"}
                         },
-                        'filetype'
+                        "filetype"
                     },
-                    lualine_y = {'progress'},
-                    lualine_z = {'location'}
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" }
                 },
                 inactive_sections = {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = {'filename'},
-                    lualine_x = {'location'},
+                    lualine_c = { "filename" },
+                    lualine_x = { "location" },
                     lualine_y = {},
                     lualine_z = {}
                 },

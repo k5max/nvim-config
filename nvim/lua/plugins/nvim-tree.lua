@@ -71,13 +71,13 @@ return {
             view = {
                 -- 宽度
                 width = 30,
-                -- 也可以 'right'
-                side = 'left',
+                -- 也可以 "right"
+                side = "left",
                 -- 不显示行数
                 number = false,
                 relativenumber = false,
                 -- 显示图标
-                signcolumn = 'yes',
+                signcolumn = "yes",
             },
             hijack_directories = {
                 enable = true,

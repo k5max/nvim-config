@@ -74,7 +74,7 @@ return {
                 }
             }
 
-            local builtin = require('telescope.builtin')
+            local builtin = require("telescope.builtin")
 
             -- find
             -- cache the results of "git rev-parse", process creation is expensive in Windows, so this reduces latency
