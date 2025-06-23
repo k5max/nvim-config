@@ -57,10 +57,10 @@ return {
             --     return
             -- end
             -- vim.cmd("colorscheme onedark")
-            require('onedark').setup {
-                style = 'dark' -- Themes: dark darker cool deep warm warmer
+            require("onedark").setup {
+                style = "dark" -- Themes: dark darker cool deep warm warmer
             }
-            require('onedark').load() -- 跟vim.cmd("colorscheme onedark")效果一样，是两种不同的应用主题的方式
+            require("onedark").load() -- 跟vim.cmd("colorscheme onedark")效果一样，是两种不同的应用主题的方式
         end,
     },
     {

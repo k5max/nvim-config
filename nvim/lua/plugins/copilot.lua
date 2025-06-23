@@ -10,11 +10,11 @@ return {
             local function show_toggle_message(message, duration)
                 vim.api.nvim_echo({{message}}, false, {})
                 vim.defer_fn(function()
-                    vim.cmd('echohl None | echomsg ""')
+                    vim.cmd("echohl None | echomsg ''")
                 end, duration)
             end
 
-            vim.keymap.set('n', '<leader>ct', function()
+            vim.keymap.set("n", "<leader>ct", function()
                 if vim.g.copilot_enabled then
                     vim.g.copilot_enabled = false
                     show_toggle_message("Disable copilot", 1000)

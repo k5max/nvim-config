@@ -19,8 +19,8 @@ return {
                 left_mouse_command = "buffer %d",
                 right_mouse_command = "Bdelete! %d",
                 indicator = {
-                    icon = '▎',
-                    style = 'icon',
+                    icon = "▎",
+                    style = "icon",
                 },
                 max_name_length = 30,
                 -- 侧边栏配置
