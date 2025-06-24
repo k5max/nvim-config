@@ -58,10 +58,8 @@ return {
             },
         })
 
-        -- 开启 Folding 模块 ==> zc，zo 会折叠 {} 里的内容
-        vim.opt.foldmethod = "expr"
-        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-        -- 默认不要折叠
-        vim.opt.foldlevel = 99
+        -- 开启 Folding 模块 ==> zc，zo 会折叠/取消折叠 {} 里的内容
+        vim.o.foldmethod = 'expr'
+        vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     end
 }

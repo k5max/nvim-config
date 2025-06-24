@@ -1,11 +1,21 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-telescope/telescope-project.nvim",
+        },
         config = function()
+            -- 加载插件
+            require("telescope").load_extension("vim_bookmarks")
+            require("telescope").load_extension("ui-select")
+            require("telescope").load_extension("project")
+
             local telescope = require("telescope")
             local actions = require('telescope.actions')
-            telescope.setup{
+            local project_actions = require("telescope._extensions.project.actions")
+            telescope.setup {
                 defaults = {
                     layout_strategy = "horizontal",
                     layout_config = {
@@ -70,6 +80,41 @@ return {
                         --      do the following
                         --   codeactions = false,
                         -- }
+                    },
+                    project = {
+                        base_dirs = {},
+                        ignore_missing_dirs = true, -- default: false
+                        hidden_files = true, -- default: false
+                        theme = "dropdown",
+                        order_by = "asc",
+                        search_by = "title",
+                        sync_with_nvim_tree = true, -- default false
+                        mappings = {
+                            n = {
+                                ['d'] = project_actions.delete_project,
+                                ['r'] = project_actions.rename_project,
+                                ['c'] = project_actions.add_project,
+                                ['C'] = project_actions.add_project_cwd,
+                                ['f'] = project_actions.find_project_files,
+                                ['b'] = project_actions.browse_project_files,
+                                ['s'] = project_actions.search_in_project_files,
+                                ['R'] = project_actions.recent_project_files,
+                                ['w'] = project_actions.change_working_directory,
+                                ['o'] = project_actions.next_cd_scope,
+                            },
+                            i = {
+                                ['<c-d>'] = project_actions.delete_project,
+                                ['<c-v>'] = project_actions.rename_project,
+                                ['<c-a>'] = project_actions.add_project,
+                                ['<c-A>'] = project_actions.add_project_cwd,
+                                ['<c-f>'] = project_actions.find_project_files,
+                                ['<c-b>'] = project_actions.browse_project_files,
+                                ['<c-s>'] = project_actions.search_in_project_files,
+                                ['<c-r>'] = project_actions.recent_project_files,
+                                ['<c-l>'] = project_actions.change_working_directory,
+                                ['<c-o>'] = project_actions.next_cd_scope,
+                            }
+                        }
                     }
                 }
             }
@@ -99,15 +144,15 @@ return {
             vim.keymap.set("n", "<leader>fj", builtin.jumplist, { noremap = true, silent = true, desc = "Telescope: Jumplist" })
             vim.keymap.set("n", "<leader>fl", builtin.search_history, { noremap = true, silent = true, desc = "Telescope: Search History" })
             vim.keymap.set("n", "<leader>fL", builtin.command_history, { noremap = true, silent = true, desc = "Telescope: Command History" })
-            vim.keymap.set("n", "<leader>fm", require('telescope').extensions.vim_bookmarks.current_file, { noremap = true, silent = true, desc = "Telescope: Document Bookmarks"})
-            vim.keymap.set("n", "<leader>fM", require('telescope').extensions.vim_bookmarks.all, { noremap = true, silent = true, desc = "Telescope: Workspace Bookmarks" })
+            vim.keymap.set("n", "<leader>fm", require("telescope").extensions.vim_bookmarks.current_file, { noremap = true, silent = true, desc = "Telescope: Document Bookmarks"})
+            vim.keymap.set("n", "<leader>fM", require("telescope").extensions.vim_bookmarks.all, { noremap = true, silent = true, desc = "Telescope: Workspace Bookmarks" })
             vim.keymap.set("n", "<leader>fr", builtin.registers, { noremap = true, silent = true, desc = "Telescope: Find Registers" })
             vim.keymap.set("n", "<leader>fq", builtin.quickfix, { noremap = true, silent = true, desc = "Telescope: Quickfix List" })
             vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { noremap = true, silent = true, desc = "Telescope: Lsp Document Symbols" })
             vim.keymap.set("n", "<leader>fS", builtin.lsp_dynamic_workspace_symbols, { noremap = true, silent = true, desc = "Telescope: Lsp Dynamic Workspace Rymbols" })
-            vim.keymap.set("n", "<leader>fp", '<cmd>Telescope projects<cr>', { noremap = true, silent = true, desc = "Telescope: Find Projects" })
-            vim.keymap.set("n", "<leader>fd", '<cmd>Telescope diagnostics bufnr=0<cr>', { noremap = true, silent = true, desc = "Telescope: Document Diagnostics"})
-            vim.keymap.set("n", "<leader>fD", '<cmd>Telescope diagnostics<cr>', { noremap = true, silent = true, desc = "Telescope: Workspace Diagnostics"})
+            vim.keymap.set("n", "<leader>fp", ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", { noremap = true, silent = true, desc = "Telescope: Find Projects" })
+            vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<cr>", { noremap = true, silent = true, desc = "Telescope: Document Diagnostics"})
+            vim.keymap.set("n", "<leader>fD", "<cmd>Telescope diagnostics<cr>", { noremap = true, silent = true, desc = "Telescope: Workspace Diagnostics"})
             vim.keymap.set("n", "<leader>fk", builtin.keymaps, { noremap = true, silent = true, desc = "Telescope: Keymaps" })
             vim.keymap.set("n", "<leader>fc", builtin.commands, { noremap = true, silent = true, desc = "Telescope: Commands" })
             vim.keymap.set("n", "<leader>fa", builtin.autocommands, { noremap = true, silent = true, desc = "Telescope: Autocommands" })
@@ -119,10 +164,6 @@ return {
             vim.keymap.set("n", "<leader>gb", builtin.git_branches, { noremap = true, silent = true, desc = "Telescope: Git Branchs" })
             vim.keymap.set("n", "<leader>gs", builtin.git_status, { noremap = true, silent = true, desc = "Telescope: Git Status" })
 
-            -- 加载外部的一些插件
-            require("telescope").load_extension("vim_bookmarks")
-            require("telescope").load_extension("projects")
-            require("telescope").load_extension("ui-select")
         end
     },
     {
@@ -132,8 +173,4 @@ return {
         --     :Telescope vim_bookmarks current_file => 已经被上面映射成 <leader>fm
         "tom-anders/telescope-vim-bookmarks.nvim",
     },
-    {
-        -- code action ui界面设置
-        "nvim-telescope/telescope-ui-select.nvim",
-    }
 }

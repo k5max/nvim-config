@@ -210,7 +210,7 @@ return {
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     -- Inlay hint
-                    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+                    if client and client.server_capabilities.inlayHintProvider then
                         -- vim.lsp.inlay_hint.enable() -- default enable
                         vim.keymap.set("n", "<leader>qh", function()
                             local inlay_hint_status = not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
@@ -221,7 +221,7 @@ return {
                     end
 
                     -- Highlight words under cursorh
-                    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) and vim.bo.filetype ~= "bigfile" then
+                    if client and client.server_capabilities.documentHighlightProvider and vim.bo.filetype ~= "bigfile" then
                         local highlight_augroup = vim.api.nvim_create_augroup("cursor-lsp-highlight", { clear = false })
                         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
                             buffer = event.buf,
@@ -234,6 +234,12 @@ return {
                             group = highlight_augroup,
                             callback = vim.lsp.buf.clear_references,
                         })
+                    end
+
+                    -- Folding
+                    if client and client.server_capabilities.foldingRangeProvider then
+                        local win = vim.api.nvim_get_current_win()
+                        vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
                     end
 
                 end,

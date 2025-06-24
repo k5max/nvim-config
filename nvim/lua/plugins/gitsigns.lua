@@ -1,8 +1,7 @@
 return {
     "lewis6991/gitsigns.nvim",
     config = function()
-        local gitsigns = require("gitsigns")
-        gitsigns.setup({
+        require("gitsigns").setup({
             -- 字母图标 A 增加，C修改，D 删除
             signs = {
                 add          = { text = "A|" },
