@@ -45,6 +45,7 @@ return {
         },
         cmdline = {
 			keymap = {
+			    preset = "none",
 				["<CR>"] = { "select_and_accept", "fallback" },
 
                 ["<Up>"] = { "select_prev", "fallback" },

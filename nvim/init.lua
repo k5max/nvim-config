@@ -4,6 +4,8 @@ require("basic")
 require("keymappings")
 -- 自动命令
 require("autocmds")
+-- 折叠设置
+require("folding")
 -- 剪贴板设置
 require("clipboard")
 -- lazynvim 插件管理
