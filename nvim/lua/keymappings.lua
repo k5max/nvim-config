@@ -4,7 +4,6 @@ vim.g.maplocalleader = " "
 
 local keymap = vim.keymap
 local opt = { noremap = true, silent = true }
-local terminal_opt = { silent = true }
 
 -- 窗口分屏
 keymap.set("n", "<leader>sv", "<C-w>v", opt) -- vsplit
@@ -50,9 +49,9 @@ keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv", opt) -- :move '>+1<CR>gv-gv 不�
 keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv", opt) -- :move '<-2<CR>gv-gv 不缩进
 
 -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", terminal_opt)
--- keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", terminal_opt)
--- keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", terminal_opt)
--- keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", terminal_opt)
+-- keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", { silent = true })
+-- keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", { silent = true })
+-- keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { silent = true })
+-- keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { silent = true })
 
 -- ===== 更多插件相关快捷键在各自的配置文件里面 =====
