@@ -23,17 +23,17 @@ return {
                             preview_cutoff = 0,
                         },
                     },
-                    -- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
+                    -- 打开弹窗后进入的初始模式, 默认为insert
                     initial_mode = "insert",
                     mappings = {
                         i = {
-                            ["<C-n>"] = actions.cycle_history_next,
-                            ["<C-p>"] = actions.cycle_history_prev,
+                            ["<C-Down>"] = actions.cycle_history_next,
+                            ["<C-Up>"] = actions.cycle_history_prev,
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
-                            ["<C-u>"] = actions.preview_scrolling_up,
-                            ["<C-d>"] = actions.preview_scrolling_down,
-                            ["<esc>"] = actions.close,
+                            ["<C-b>"] = actions.preview_scrolling_up,
+                            ["<C-f>"] = actions.preview_scrolling_down,
+                            -- ["<esc>"] = actions.close,
                         }
                     }
                 },

@@ -169,7 +169,7 @@ return {
                     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "LSP: Goto Implementation" })
                     vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: Goto References" })
 
-                    -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = event.buf })
+                    -- vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { buffer = event.buf })  -- default CTRL-S
                     -- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { buffer = event.buf })
                     -- vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { buffer = event.buf })
                     -- vim.keymap.set("n", "<space>wl", function()

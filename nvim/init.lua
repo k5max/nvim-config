@@ -1,7 +1,7 @@
 -- 基础设置
 require("basic")
 -- 快捷键映射
-require("keymappings")
+require("keymaps")
 -- 自动命令
 require("autocmds")
 -- 折叠设置

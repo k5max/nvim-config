@@ -16,21 +16,22 @@ return {
 			preset = "none",
 			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
             ["<C-e>"] = { "hide", "fallback" },
+            ['<C-y>'] = { 'select_and_accept', 'fallback' },
 
 			["<CR>"] = { "accept", "fallback" },
 
             ["<Up>"] = { "select_prev", "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
-			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-j>"] = { "select_next", "fallback" },
+            ['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
+            ['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
+
+			["<C-b>"] = { "scroll_documentation_up", "fallback" },
+			["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
 			["<Tab>"] = { "snippet_forward", "fallback" },
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 
-			["<C-u>"] = { "scroll_documentation_up", "fallback" },
-			["<C-d>"] = { "scroll_documentation_down", "fallback" },
-
-            ["<C-p>"] = { "show_signature", "hide_signature", "fallback" },
+            -- ["<C-p>"] = { "show_signature", "hide_signature", "fallback" },
 		},
 		completion = {
 			keyword = { range = "full" },
@@ -46,6 +47,8 @@ return {
         cmdline = {
 			keymap = {
 			    preset = "none",
+                ['<C-e>'] = { 'cancel', 'fallback' },
+                ['<C-y>'] = { 'select_and_accept', 'fallback' },
 				["<CR>"] = { "select_and_accept", "fallback" },
 
                 ["<Up>"] = { "select_prev", "fallback" },
