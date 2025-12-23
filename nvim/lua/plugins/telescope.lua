@@ -27,13 +27,21 @@ return {
                     initial_mode = "insert",
                     mappings = {
                         i = {
-                            ["<C-Down>"] = actions.cycle_history_next,
-                            ["<C-Up>"] = actions.cycle_history_prev,
+                            ["<C-Up>"] = actions.cycle_history_next,
+                            ["<C-Down>"] = actions.cycle_history_prev,
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-b>"] = actions.preview_scrolling_up,
                             ["<C-f>"] = actions.preview_scrolling_down,
                             -- ["<esc>"] = actions.close,
+                        },
+                        n = {
+                            ["<C-Up>"] = actions.cycle_history_next,
+                            ["<C-Down>"] = actions.cycle_history_prev,
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-b>"] = actions.preview_scrolling_up,
+                            ["<C-f>"] = actions.preview_scrolling_down,
                         }
                     }
                 },

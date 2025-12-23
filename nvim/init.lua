@@ -1,32 +1,12 @@
 -- 基础设置
-require("basic")
+require("config.basic")
 -- 快捷键映射
-require("keymaps")
+require("config.keymaps")
 -- 自动命令
-require("autocmds")
+require("config.autocmds")
 -- 折叠设置
-require("folding")
+require("config.folding")
 -- 剪贴板设置
-require("clipboard")
--- lazynvim 插件管理
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Use a protected call so we don't error out on first use
-local status_ok, lazy = pcall(require, "lazy")
-if not status_ok then
-    vim.notify("lazy.nvim not found")
-    return
-end
--- 加载所有插件
-lazy.setup("plugins")
+require("config.clipboard")
+-- lazy.nvim设置 一定要在最后
+require("config.lazy")
