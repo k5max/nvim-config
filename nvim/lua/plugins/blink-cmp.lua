@@ -76,6 +76,7 @@ return {
 				"lsp",
 				"path",
 				"snippets",
+                "lazydev",
 			},
 			providers = {
 				-- score_offset设置优先级数字越大优先级越高
@@ -92,6 +93,11 @@ return {
 						return 0
 					end,
 				},
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    score_offset = 100,
+                },
 			},
 		},
         fuzzy = { implementation = "prefer_rust_with_warning" },
