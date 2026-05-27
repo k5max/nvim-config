@@ -8,5 +8,7 @@ require("config.autocmds")
 require("config.folding")
 -- 剪贴板设置
 require("config.clipboard")
+-- lsp设置
+require("config.lsp")
 -- lazy.nvim设置 一定要在最后
 require("config.lazy")
