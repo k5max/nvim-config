@@ -1,3 +1,3 @@
 return {
-    "vim-scripts/argtextobj.vim"
+  "vim-scripts/argtextobj.vim",
 }

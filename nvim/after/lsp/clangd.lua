@@ -18,5 +18,5 @@ return {
        "-j=12",
        "--pretty",
        "--offset-encoding=utf-16",
-   }
+   },
 }

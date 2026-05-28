@@ -7,21 +7,23 @@ vim.o.clipboard = "unnamedplus,unnamed"
 -- 行号与相对行号
 vim.o.number = true
 --vim.o.relativenumber = true
--- 处理未保存或只读文件弹出提示 
+-- 处理未保存或只读文件弹出提示
 vim.o.confirm = true
 -- 高亮所在行
 vim.wo.cursorline = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
--- 缩进4个空格等于一个Tab
+-- Tab缩进等于4个空格
 vim.o.tabstop = 4
 vim.bo.tabstop = 4
+-- 连续按Backspace时删掉4个空格
 vim.o.softtabstop = 4
+-- 缩进取整
 vim.o.shiftround = true
--- >> << 时移动长度
+-- 每级缩进的宽度为4个空格
 vim.o.shiftwidth = 4
 vim.bo.shiftwidth = 4
--- 空格替代tab
+-- Tab转换为空格
 vim.o.expandtab = true
 vim.bo.expandtab = true
 -- 新行对齐当前行
@@ -76,4 +78,4 @@ vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
 -- cursor style  default "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
-vim.o.guicursor="n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"

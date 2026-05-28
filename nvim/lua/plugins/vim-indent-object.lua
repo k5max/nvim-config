@@ -1,3 +1,3 @@
 return {
-    "michaeljsmith/vim-indent-object"
+  "michaeljsmith/vim-indent-object",
 }

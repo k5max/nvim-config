@@ -1,12 +1,12 @@
 return {
-    -- 需要lua lsp server 为 lua_ls
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
-    opts = {
-        library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        },
+  -- 需要lua lsp server 为 lua_ls
+  "folke/lazydev.nvim",
+  ft = "lua",   -- only load on lua files
+  opts = {
+    library = {
+      -- See the configuration section for more details
+      -- Load luvit types when the `vim.uv` word is found
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
     },
+  },
 }
