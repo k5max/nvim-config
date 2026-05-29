@@ -119,24 +119,6 @@ return {
         },
       })
       vim.cmd("colorscheme catppuccin")
-    end
-  },
-  {
-    "sainnhe/sonokai",
-    enabled = false,
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme sonokai")
-    end,
-  },
-  {
-    "sainnhe/everforest",
-    enabled = false,
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme everforest")
     end,
   },
 }
